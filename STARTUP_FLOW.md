@@ -34,6 +34,28 @@ docker compose version
 - убедиться, что запуск не упрётся в отсутствующий Docker
 - убедиться, что команды ниже будут работать без донастройки
 
+## Step 0.1. Остановить предыдущий запуск Gym__Data
+
+Если `Gym__Data` уже запускался раньше, перед новым запуском лучше остановить именно его контейнеры.
+
+Команда:
+
+```powershell
+docker compose down
+```
+
+Что делает шаг:
+
+- останавливает только контейнеры текущего Compose-проекта `Gym__Data`
+- не трогает другие Docker-проекты, если они запущены отдельно
+- очищает старое runtime-состояние сервисов перед новым стартом
+
+Важно:
+
+- эта команда не должна останавливать твой другой проект, если ты запускаешь её из корня `Gym__Data`
+- `docker compose down` не удаляет volumes
+- `docker compose down -v` используй только если хочешь полностью сбросить локальное состояние PostgreSQL и ClickHouse
+
 ## Step 1. Опционально создать `.env`
 
 Если дефолтные настройки тебя устраивают, этот шаг можно пропустить.
@@ -125,7 +147,7 @@ docker compose ps
 Команда:
 
 ```powershell
-docker compose --profile jobs run --rm ingestion
+docker compose --profile jobs run --rm --build ingestion
 ```
 
 Что делает шаг:
@@ -146,6 +168,18 @@ docker compose --profile jobs run --rm ingestion
 - PostgreSQL заполняется raw-данными
 - ClickHouse получает актуальные marts
 - в консоли появляется сводка по загруженным сущностям
+
+Почему здесь используется `--build`:
+
+- `docker compose up -d --build` поднимает основные сервисы
+- но `ingestion` находится в profile `jobs` и не всегда пересобирается автоматически вместе с backend
+- поэтому для надёжного запуска лучше сразу пересобирать job image именно в момент запуска ingestion
+
+Это избавляет от ситуации, когда:
+
+- backend уже новый
+- source snapshot уже считается новым кодом
+- а `ingestion` job всё ещё работает со старой логикой flattening/reconciliation
 
 Пример ожидаемой логики результата:
 
@@ -178,6 +212,24 @@ docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cl
 
 - отчёт заканчивается `Status: PASS`
 - команда завершается с exit code `0`
+
+Важно как понимать `reconcile`:
+
+- `reconcile` сам по себе ничего не перезагружает
+- он только сверяет `source`, `flat` и `raw`
+- поэтому перед `reconcile` нужно сначала убедиться, что данные уже были загружены актуальной версией ingestion
+
+Правильная логика такая:
+
+1. пересобрать и запустить `ingestion`
+2. загрузить RAW и MART
+3. только потом запускать `reconcile`
+
+Именно поэтому в Step 4 используется:
+
+```powershell
+docker compose --profile jobs run --rm --build ingestion
+```
 
 ## Step 6. Прогнать backend tests
 
@@ -375,19 +427,19 @@ docker compose logs -f backend
 Повторно загрузить данные:
 
 ```powershell
-docker compose --profile jobs run --rm ingestion
+docker compose --profile jobs run --rm --build ingestion
 ```
 
 Повторно прогнать только workouts:
 
 ```powershell
-docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-workouts
+docker compose --profile jobs run --rm --build ingestion python -m gym_data_ingestion.cli.main load-workouts
 ```
 
 Повторно прогнать только measurements:
 
 ```powershell
-docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-measurements
+docker compose --profile jobs run --rm --build ingestion python -m gym_data_ingestion.cli.main load-measurements
 ```
 
 Остановить систему:
@@ -409,17 +461,19 @@ docker compose down -v
 Если нужен минимальный путь без дополнительных проверок:
 
 ```powershell
+docker compose down
 docker compose up -d --build
-docker compose --profile jobs run --rm ingestion
+docker compose --profile jobs run --rm --build ingestion
 Start-Process http://localhost:18080/ui/
 ```
 
 Если нужен безопасный рабочий сценарий с проверкой данных:
 
 ```powershell
+docker compose down
 .\scripts\check_ports.ps1
 docker compose up -d --build
-docker compose --profile jobs run --rm ingestion
+docker compose --profile jobs run --rm --build ingestion
 docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile
 .\scripts\smoke_check.ps1 -WithReconciliation
 ```

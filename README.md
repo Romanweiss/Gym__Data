@@ -12,11 +12,12 @@ Docker-first foundation for a fitness analytics platform built around real `work
 - Runbook and roadmap for the next platform stages
 
 ## Quick start
-1. Copy `.env.example` to `.env` if you want to override defaults.
-2. Run `docker compose up -d --build`.
-3. Run `docker compose --profile jobs run --rm ingestion`.
-4. Optionally run `docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile`.
-5. Open `http://localhost:18080/ui/` for the workspace or `http://localhost:18080/api/health/` for the health check.
+1. Optionally stop a previous `Gym__Data` run with `docker compose down`.
+2. Copy `.env.example` to `.env` if you want to override defaults.
+3. Run `docker compose up -d --build`.
+4. Run `docker compose --profile jobs run --rm --build ingestion`.
+5. Optionally run `docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile`.
+6. Open `http://localhost:18080/ui/` for the workspace or `http://localhost:18080/api/health/` for the health check.
 
 ## Main API surfaces
 - `/api/workouts/`

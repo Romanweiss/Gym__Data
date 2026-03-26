@@ -1,5 +1,15 @@
 # RUNBOOK DOCKER
 
+## 0. Stop previous Gym__Data containers if needed
+
+If the project was already running before, stop only the current `Gym__Data` stack first:
+
+```powershell
+docker compose down
+```
+
+This command affects only the Compose project from the current repository root and does not stop unrelated Docker projects.
+
 ## 1. Optional env file
 
 Create `.env` only if you need to override defaults:
@@ -34,7 +44,7 @@ docker compose up -d --build
 ## 4. Load the datasets
 
 ```powershell
-docker compose --profile jobs run --rm ingestion
+docker compose --profile jobs run --rm --build ingestion
 ```
 
 This command:
@@ -48,8 +58,8 @@ This command:
 Domain-specific ingestion commands:
 
 ```powershell
-docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-workouts
-docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-measurements
+docker compose --profile jobs run --rm --build ingestion python -m gym_data_ingestion.cli.main load-workouts
+docker compose --profile jobs run --rm --build ingestion python -m gym_data_ingestion.cli.main load-measurements
 ```
 
 ## 5. Reconcile source, flat, and RAW
@@ -203,5 +213,8 @@ docker compose down -v
 - if ports are busy, change `.env` first instead of editing compose defaults directly
 - if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.3 mart tables/views with `CREATE ... IF NOT EXISTS`
 - if reconciliation fails, inspect the report before reloading; do not assume the flat layer or RAW layer is correct
+- `reconcile` only compares layers; it does not rebuild or reload them
+- if code changed in `ingestion/`, reload data with a fresh ingestion image before re-running reconcile:
+  `docker compose --profile jobs run --rm --build ingestion`
 - `MEASUREMENT_RECOMMENDATION_CADENCE_DAYS` and `DEFAULT_SUBJECT_PROFILE_ID` can be overridden in `.env` without changing code
 - the embedded UI is served by the backend service, so there is no separate frontend container or host port in stage 1.3
