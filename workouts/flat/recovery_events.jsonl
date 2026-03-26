@@ -1,0 +1,61 @@
+{"workout_id": "2026-01-09", "order": 1, "event_type": "stretching", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-09", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-09", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-11_b", "order": 1, "event_type": "stretching", "duration_min": 30, "notes": null}
+{"workout_id": "2026-01-11_b", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-11_b", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-13", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-13", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-16", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-16", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-18", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-18", "order": 2, "event_type": "stretching", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-18", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-19", "order": 1, "event_type": "stretching", "duration_min": 40, "notes": null}
+{"workout_id": "2026-01-20", "order": 1, "event_type": "stretching", "duration_min": 15, "notes": null}
+{"workout_id": "2026-01-24", "order": 1, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-31", "order": 1, "event_type": "stretching", "duration_min": 39, "notes": null}
+{"workout_id": "2026-01-31", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-01-31", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-01", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-01", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-02", "order": 1, "event_type": "stretching", "duration_min": 30, "notes": null}
+{"workout_id": "2026-02-02", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-02", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-03", "order": 1, "event_type": "stretching", "duration_min": null, "notes": "Короткая растяжка"}
+{"workout_id": "2026-02-03", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-05", "order": 1, "event_type": "stretching", "duration_min": 15, "notes": null}
+{"workout_id": "2026-02-09", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-09", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": "Ледяной душ"}
+{"workout_id": "2026-02-11", "order": 1, "event_type": "stretching", "duration_min": 43, "notes": null}
+{"workout_id": "2026-02-11", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-11", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-12", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-12", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-16", "order": 1, "event_type": "stretching", "duration_min": 35, "notes": null}
+{"workout_id": "2026-02-16", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-16", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-22", "order": 1, "event_type": "stretching", "duration_min": 35, "notes": null}
+{"workout_id": "2026-02-24", "order": 1, "event_type": "stretching", "duration_min": null, "notes": "Лёгкая растяжка"}
+{"workout_id": "2026-02-24", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-25", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-25", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-25", "order": 3, "event_type": "stretching", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-25", "order": 4, "event_type": "vacuum", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-27", "order": 1, "event_type": "stretching", "duration_min": null, "notes": "Короткая растяжка"}
+{"workout_id": "2026-02-27", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-02-27", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-01", "order": 1, "event_type": "stretching", "duration_min": null, "notes": "Короткая растяжка"}
+{"workout_id": "2026-03-01", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-01", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-10", "order": 3, "event_type": "stretching", "duration_min": 30, "notes": null}
+{"workout_id": "2026-03-17", "order": 1, "event_type": "stretching", "duration_min": 36, "notes": null}
+{"workout_id": "2026-03-21", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-21", "order": 2, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-21", "order": 3, "event_type": "stretching", "duration_min": null, "notes": "Лёгкая растяжка"}
+{"workout_id": "2026-03-23", "order": 1, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-23", "order": 2, "event_type": "stretching", "duration_min": null, "notes": "Короткая растяжка в сауне"}
+{"workout_id": "2026-03-23", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-25", "order": 1, "event_type": "stretching", "duration_min": 36, "notes": null}
+{"workout_id": "2026-03-25", "order": 2, "event_type": "sauna", "duration_min": null, "notes": null}
+{"workout_id": "2026-03-25", "order": 3, "event_type": "cold_shower", "duration_min": null, "notes": null}

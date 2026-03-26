@@ -1,0 +1,19 @@
+{
+  "export_name": "roman_workouts_structured_export",
+  "generated_from_context_date": "2026-03-25",
+  "workout_count": 43,
+  "detailed_workout_count": 11,
+  "partial_raw_workout_count": 1,
+  "summary_only_workout_count": 31,
+  "set_rows_count": 241,
+  "exercise_instance_rows_count": 165,
+  "cardio_segment_rows_count": 45,
+  "recovery_event_rows_count": 61,
+  "notes": [
+    "Для неполных записей вида 125х повторы выставлены в 1 и помечены parse_note=reps_missing_defaulted_to_1.",
+    "Bodyweight-упражнения хранятся как weight_kg=0.",
+    "Summary-only тренировки содержат канонизированные упражнения, но без сетов/повторов, если первичная детализация в истории отсутствует.",
+    "Для 2026-03-07 кроссовер разделён на несколько exercise instances по cable_position.",
+    "Для 2026-01-11 сохранены две отдельные сессии в один день: 2026-01-11_a и 2026-01-11_b."
+  ]
+}

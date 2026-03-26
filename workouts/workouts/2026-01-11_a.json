@@ -1,0 +1,127 @@
+{
+  "workout_id": "2026-01-11_a",
+  "date": "2026-01-11",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Трицепс, Бицепс",
+  "split_raw": [
+    "Грудь",
+    "Трицепс",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "chest",
+    "triceps",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Силовая: грудь, трицепс, бицепс — наклонные жимы гантелей (+ и − угол), кроссоверы, брусья с весом, трицепс в верхнем блоке, бицепс с гантелями, пресс; предварительное кардио 7 мин.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 7,
+      "notes": "Предварительное кардио по summary-источнику."
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Наклонные жимы гантелей (+ угол)",
+      "exercise_name_canonical": "жим гантелей в наклонной скамье",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {
+        "bench_angle": "incline"
+      },
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Наклонные жимы гантелей (− угол)",
+      "exercise_name_canonical": "жим гантелей в наклонной скамье",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {
+        "bench_angle": "decline"
+      },
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Кроссоверы",
+      "exercise_name_canonical": "кроссовер",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Брусья с весом",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "С дополнительным весом.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Трицепс в верхнем блоке",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Бицепс с гантелями",
+      "exercise_name_canonical": "подъём гантелей на бицепс стоя",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Пресс",
+      "exercise_name_canonical": "пресс",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "workout_id": "2026-03-19",
+  "date": "2026-03-19",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Ноги, Бицепс",
+  "split_raw": [
+    "Грудь",
+    "Ноги",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "chest",
+    "legs",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "19.03.2026 Грудь, Ноги, Бицепс\n1. Кардио - эллиптический тренажёр вперёд 6 минут\n2. Кардио - эллиптический тренажёр назад 2 минуты\n3. Жим штанги лёжа 20х27, 20х21, 20х25, 50х20, 80х10, 100х4, 100х4, 100х4, 90х6, 90х7, 90х7\n4. Привода - 70х15, 80х15, 90х11, 95х10, 100х9\n5. Отвода - 70х15, 80х13, 90х11, 100х8, 100х7\n6. Жим икрами в тренажёре лёжа 75х17, 100х14, 150х10, 150х10, 150х10\n7. Отжимания на брусьях широким хватом с поджатыми коленками акцент на грудь 13, 12, 14, 13, 13\n8. Подъём гантелей на бицепс 16х13, 18х10, 18х10\n9. Молотки 20х13, 24х15",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 6,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Жим штанги лёжа",
+      "exercise_name_canonical": "жим штанги лёжа",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 27,
+          "raw_value": "20х27",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 21,
+          "raw_value": "20х21",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 20,
+          "reps": 25,
+          "raw_value": "20х25",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 20,
+          "raw_value": "50х20",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 80,
+          "reps": 10,
+          "raw_value": "80х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 100,
+          "reps": 4,
+          "raw_value": "100х4",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 100,
+          "reps": 4,
+          "raw_value": "100х4",
+          "parse_note": null
+        },
+        {
+          "set_order": 8,
+          "weight_kg": 100,
+          "reps": 4,
+          "raw_value": "100х4",
+          "parse_note": null
+        },
+        {
+          "set_order": 9,
+          "weight_kg": 90,
+          "reps": 6,
+          "raw_value": "90х6",
+          "parse_note": null
+        },
+        {
+          "set_order": 10,
+          "weight_kg": 90,
+          "reps": 7,
+          "raw_value": "90х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 11,
+          "weight_kg": 90,
+          "reps": 7,
+          "raw_value": "90х7",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х27, 20х21, 20х25, 50х20, 80х10, 100х4, 100х4, 100х4, 90х6, 90х7, 90х7",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Привода",
+      "exercise_name_canonical": "приведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 70,
+          "reps": 15,
+          "raw_value": "70х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 80,
+          "reps": 15,
+          "raw_value": "80х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 90,
+          "reps": 11,
+          "raw_value": "90х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 95,
+          "reps": 10,
+          "raw_value": "95х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 100,
+          "reps": 9,
+          "raw_value": "100х9",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "70х15, 80х15, 90х11, 95х10, 100х9",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Отвода",
+      "exercise_name_canonical": "отведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 70,
+          "reps": 15,
+          "raw_value": "70х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 80,
+          "reps": 13,
+          "raw_value": "80х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 90,
+          "reps": 11,
+          "raw_value": "90х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 100,
+          "reps": 8,
+          "raw_value": "100х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 100,
+          "reps": 7,
+          "raw_value": "100х7",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "70х15, 80х13, 90х11, 100х8, 100х7",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Жим икрами в тренажёре лёжа",
+      "exercise_name_canonical": "жим икрами в тренажёре лёжа",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 75,
+          "reps": 17,
+          "raw_value": "75х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 100,
+          "reps": 14,
+          "raw_value": "100х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 150,
+          "reps": 10,
+          "raw_value": "150х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 150,
+          "reps": 10,
+          "raw_value": "150х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 150,
+          "reps": 10,
+          "raw_value": "150х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "75х17, 100х14, 150х10, 150х10, 150х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Отжимания на брусьях широким хватом с поджатыми коленками акцент на грудь",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {
+        "grip": "wide",
+        "emphasis": "chest"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "13, 12, 14, 13, 13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 8,
+      "exercise_name_raw": "Подъём гантелей на бицепс",
+      "exercise_name_canonical": "подъём гантелей на бицепс стоя",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 16,
+          "reps": 13,
+          "raw_value": "16х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 18,
+          "reps": 10,
+          "raw_value": "18х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 18,
+          "reps": 10,
+          "raw_value": "18х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "16х13, 18х10, 18х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 9,
+      "exercise_name_raw": "Молотки",
+      "exercise_name_canonical": "молотки гантелями на бицепс",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 13,
+          "raw_value": "20х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 24,
+          "reps": 15,
+          "raw_value": "24х15",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х13, 24х15",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

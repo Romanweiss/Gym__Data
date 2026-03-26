@@ -1,0 +1,127 @@
+{
+  "workout_id": "2026-01-13",
+  "date": "2026-01-13",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Ноги, Спина, Бицепс, Трицепс",
+  "split_raw": [
+    "Кардио",
+    "Ноги",
+    "Спина",
+    "Бицепс",
+    "Трицепс"
+  ],
+  "split_normalized": [
+    "cardio",
+    "legs",
+    "back",
+    "biceps",
+    "triceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Умеренное кардио на эллипсе (30 мин суммарно), лёгкая/средняя силовая работа без отказа — икры, разгибания бедра, тяги верхнего блока на спину, пуловер, изолирующие движения на трицепс и бицепс; восстановительный характер. После — сауна и контрастный душ.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 30,
+      "notes": "Суммарное кардио по summary-источнику."
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Икры",
+      "exercise_name_canonical": "подъёмы на икры сидя в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Разгибания бедра",
+      "exercise_name_canonical": "разгибание бедра сидя в тренажёре поочерёдно каждой ногой",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Тяга верхнего блока на спину",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Пуловер",
+      "exercise_name_canonical": "пуловер на спину стоя в наклоне",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Трицепс изоляция",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Бицепс изоляция",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

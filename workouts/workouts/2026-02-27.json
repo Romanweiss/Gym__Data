@@ -1,0 +1,108 @@
+{
+  "workout_id": "2026-02-27",
+  "date": "2026-02-27",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Задняя дельта, Ноги",
+  "split_raw": [
+    "Грудь",
+    "Задняя дельта",
+    "Ноги"
+  ],
+  "split_normalized": [
+    "chest",
+    "rear_delts",
+    "legs"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Объёмный жим гантелей в наклонной скамье до 40 кг, работа на заднюю дельту в блоках, приводы/отводы и сгибания бёдер; без тяжёлой осевой нагрузки; короткая растяжка, сауна и контрастный душ.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": null,
+      "notes": "Короткая растяжка"
+    },
+    {
+      "order": 2,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Жим гантелей в наклонной скамье",
+      "exercise_name_canonical": "жим гантелей в наклонной скамье",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "До 40 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Задняя дельта в блоках",
+      "exercise_name_canonical": "пуловер канатом на заднюю дельту",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Приводы",
+      "exercise_name_canonical": "приведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Отводы",
+      "exercise_name_canonical": "отведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Сгибания бёдер",
+      "exercise_name_canonical": "сгибание бедра",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

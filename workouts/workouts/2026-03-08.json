@@ -1,0 +1,263 @@
+{
+  "workout_id": "2026-03-08",
+  "date": "2026-03-08",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Трицепс, Плечи",
+  "split_raw": [
+    "Ноги",
+    "Трицепс",
+    "Плечи"
+  ],
+  "split_normalized": [
+    "legs",
+    "triceps",
+    "shoulders"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "08.03.2026 Ноги, Трицепс, Плечи\n1. Кардио эллиптический тренажёр вперёд 6 минут\n2. Кардио эллиптический тренажёр назад 2 минуты\n3. Приседания со штангой 20х14, 20х15, 60х10, 80х8, 100х7, 120х4, 120х5, 125х\n4. Махи гантелями в стороны 16х14, 18х12, 20х12, 20х13, 22х10\n5. Тяга нижнего блока из за спины стоя на трицепс 35х16, 40х13, 45х12, 50х12, 55х10\n6. Махи блином перед собой 25х11, 25х10, 25х11, 25х10\n7. Кардио эллиптический тренажёр вперёд 20 минут\n8. Кардио эллиптический тренажёр назад 5 минут",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 6,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    },
+    {
+      "order": 7,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 20,
+      "notes": null
+    },
+    {
+      "order": 8,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 5,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 14,
+          "raw_value": "20х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 15,
+          "raw_value": "20х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 60,
+          "reps": 10,
+          "raw_value": "60х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 80,
+          "reps": 8,
+          "raw_value": "80х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 100,
+          "reps": 7,
+          "raw_value": "100х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 120,
+          "reps": 4,
+          "raw_value": "120х4",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 120,
+          "reps": 5,
+          "raw_value": "120х5",
+          "parse_note": null
+        },
+        {
+          "set_order": 8,
+          "weight_kg": 125,
+          "reps": 1,
+          "raw_value": "125х",
+          "parse_note": "reps_missing_defaulted_to_1"
+        }
+      ],
+      "raw_sets_text": "20х14, 20х15, 60х10, 80х8, 100х7, 120х4, 120х5, 125х",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Махи гантелями в стороны",
+      "exercise_name_canonical": "махи гантелями в стороны",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 16,
+          "reps": 14,
+          "raw_value": "16х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 18,
+          "reps": 12,
+          "raw_value": "18х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 20,
+          "reps": 12,
+          "raw_value": "20х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 20,
+          "reps": 13,
+          "raw_value": "20х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 22,
+          "reps": 10,
+          "raw_value": "22х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "16х14, 18х12, 20х12, 20х13, 22х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Тяга нижнего блока из за спины стоя на трицепс",
+      "exercise_name_canonical": "тяга нижнего блока из-за спины на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 35,
+          "reps": 16,
+          "raw_value": "35х16",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 40,
+          "reps": 13,
+          "raw_value": "40х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 45,
+          "reps": 12,
+          "raw_value": "45х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 12,
+          "raw_value": "50х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 55,
+          "reps": 10,
+          "raw_value": "55х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "35х16, 40х13, 45х12, 50х12, 55х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Махи блином перед собой",
+      "exercise_name_canonical": "махи блином перед собой",
+      "category": "strength",
+      "load_type": "plate",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 25,
+          "reps": 11,
+          "raw_value": "25х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 25,
+          "reps": 10,
+          "raw_value": "25х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 25,
+          "reps": 11,
+          "raw_value": "25х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 25,
+          "reps": 10,
+          "raw_value": "25х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "25х11, 25х10, 25х11, 25х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "workout_id": "2026-02-02",
+  "date": "2026-02-02",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Растяжка",
+  "split_raw": [
+    "Кардио",
+    "Растяжка"
+  ],
+  "split_normalized": [
+    "cardio",
+    "stretching"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Эллиптический тренажёр 50 мин (вперёд/назад + повышенное усилие 10 мин), растяжка 30 мин; сауна и контрастный душ.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 50,
+      "notes": "В summary указано 50 мин вперёд/назад + повышенное усилие 10 мин."
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": 30,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": []
+}

@@ -1,0 +1,82 @@
+{
+  "workout_id": "2026-01-24",
+  "date": "2026-01-24",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Ноги, Спина, Трицепс, Бицепс",
+  "split_raw": [
+    "Грудь",
+    "Ноги",
+    "Спина",
+    "Трицепс",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "chest",
+    "legs",
+    "back",
+    "triceps",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Умеренно-объёмная работа без отказа, акцент на тренажёры и блоки, брусья без доп. веса, пронация/супинация предплечий; кардио на эллипсе 21 мин, контрастный душ.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 21,
+      "notes": "Итоговое время по summary-источнику."
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Тренажёры и блоки на грудь/спину",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Брусья без доп. веса",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Пронация/супинация предплечий",
+      "exercise_name_canonical": "махи, пронации и супинации с гантелями",
+      "category": "mobility",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

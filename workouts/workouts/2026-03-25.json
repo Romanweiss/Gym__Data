@@ -1,0 +1,83 @@
+{
+  "workout_id": "2026-03-25",
+  "date": "2026-03-25",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Растяжка",
+  "split_raw": [
+    "Кардио",
+    "Растяжка"
+  ],
+  "split_normalized": [
+    "cardio",
+    "stretching"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "25.03.2026 Кардио, Растяжка\n\n1. Эллиптический тренажёр вперёд 20 минут\n2. Эллиптический тренажёр назад 12 минут\n3. Эллиптический тренажёр вперёд 15 минут\n4. Эллиптический тренажёр назад 10 минут\n5. Эллиптический тренажёр вперёд 10 минут\n6. Эллиптический назад 2 минуты\n7. Растяжка 36 минут\n\nСауна, холодный душ",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 20,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 12,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 15,
+      "notes": null
+    },
+    {
+      "order": 4,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 10,
+      "notes": null
+    },
+    {
+      "order": 5,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 10,
+      "notes": null
+    },
+    {
+      "order": 6,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": 36,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": []
+}

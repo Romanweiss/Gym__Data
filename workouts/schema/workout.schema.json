@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Workout",
+  "type": "object",
+  "required": [
+    "workout_id",
+    "date",
+    "title_raw",
+    "split_raw",
+    "split_normalized",
+    "source_quality",
+    "cardio_segments",
+    "recovery_events",
+    "exercises"
+  ],
+  "properties": {
+    "workout_id": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "session_sequence": {
+      "type": "integer"
+    },
+    "title_raw": {
+      "type": "string"
+    },
+    "split_raw": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "split_normalized": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_quality": {
+      "type": "string",
+      "enum": [
+        "raw_detailed",
+        "partial_raw",
+        "summary_only"
+      ]
+    },
+    "source_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cardio_segments": {
+      "type": "array"
+    },
+    "recovery_events": {
+      "type": "array"
+    },
+    "exercises": {
+      "type": "array"
+    }
+  }
+}

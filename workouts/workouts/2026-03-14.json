@@ -1,0 +1,231 @@
+{
+  "workout_id": "2026-03-14",
+  "date": "2026-03-14",
+  "session_sequence": 1,
+  "title_raw": "Спина, Трицепс, Плечи",
+  "split_raw": [
+    "Спина",
+    "Трицепс",
+    "Плечи"
+  ],
+  "split_normalized": [
+    "back",
+    "triceps",
+    "shoulders"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "14.03.2026 Спина, Трицепс, Плечи\n1. Кардио - эллиптический тренажёр вперёд 6 минут\n2. Кардио - эллиптический тренажёр назад 2 минуты\n3. Подтягивания широким хватом 7, 10, 11, 12, 11\n4. Отжимания на брусьях узким хватом 12, 12, 13, 14, 13\n5. Тяга верхнего блока стоя на трицепс 55х13, 65х12, 70х11, 75х10\n6. Махи гантелями в стороны стоя 14х15, 16х13, 18х12, 20х10, 22х10",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 6,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Подтягивания широким хватом",
+      "exercise_name_canonical": "подтягивания широким хватом",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 7,
+          "raw_value": "7",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 10,
+          "raw_value": "10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "7, 10, 11, 12, 11",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Отжимания на брусьях узким хватом",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {
+        "grip": "close",
+        "emphasis": "triceps"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "12, 12, 13, 14, 13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Тяга верхнего блока стоя на трицепс",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 55,
+          "reps": 13,
+          "raw_value": "55х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 65,
+          "reps": 12,
+          "raw_value": "65х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 70,
+          "reps": 11,
+          "raw_value": "70х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 75,
+          "reps": 10,
+          "raw_value": "75х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "55х13, 65х12, 70х11, 75х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Махи гантелями в стороны стоя",
+      "exercise_name_canonical": "махи гантелями в стороны",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 14,
+          "reps": 15,
+          "raw_value": "14х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 16,
+          "reps": 13,
+          "raw_value": "16х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 18,
+          "reps": 12,
+          "raw_value": "18х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 20,
+          "reps": 10,
+          "raw_value": "20х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 22,
+          "reps": 10,
+          "raw_value": "22х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "14х15, 16х13, 18х12, 20х10, 22х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

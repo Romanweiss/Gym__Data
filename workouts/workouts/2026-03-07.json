@@ -1,0 +1,494 @@
+{
+  "workout_id": "2026-03-07",
+  "date": "2026-03-07",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Бицепс, Спина",
+  "split_raw": [
+    "Грудь",
+    "Бицепс",
+    "Спина"
+  ],
+  "split_normalized": [
+    "chest",
+    "biceps",
+    "back"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "07.03.2026 Грудь, Бицепс, Спина\n1. Кардио - эллиптический тренажёр вперёд 6 минут\n2. Кардио - эллиптический тренажёр назад 2 минуты\n3. Махи, пронации, супмнации с гантелями с 3кг до\n4. Подъёмы икрами сидя в тренажёре 20х17, 40х12, 40х13, 50х12, 50х13\n5. Отжимания на брусьях с поджатыми коленками, акцент на грудь 10, 11, 12, 11, 12\n6. Скручивания в висе 12, 13, 14, 12, 12\n7. Жим штанги лёжа в наклонной скамье 20х17, 50х13, 50х15, 60х11, 70х10, 80х7, 85х5, 90х5\n8. Подъём гантелей на бицепс стоя 14х13, 16х11,18х8, 22х7\n9. Молотки гантелями на бицепс 18х13, 20х12, 24х9, 26х8\n10. Кроссовер сверху 25х12, 25х15, средняя высота 25х14, 25х13, снизу 25х11, 25х11\n11. Пуловер на спину (тяга верхний блок стоя в наклоне к поясу) 50х14, 50х15, 50х14, 50х15, 50х15",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 6,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Махи, пронации, супмнации с гантелями с 3кг до",
+      "exercise_name_canonical": "махи, пронации и супинации с гантелями",
+      "category": "mobility",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Неполная исходная запись без завершённых подходов/повторов.",
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Подъёмы икрами сидя в тренажёре",
+      "exercise_name_canonical": "подъёмы на икры сидя в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 40,
+          "reps": 12,
+          "raw_value": "40х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 40,
+          "reps": 13,
+          "raw_value": "40х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 12,
+          "raw_value": "50х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 50,
+          "reps": 13,
+          "raw_value": "50х13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х17, 40х12, 40х13, 50х12, 50х13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Отжимания на брусьях с поджатыми коленками, акцент на грудь",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {
+        "emphasis": "chest"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 10,
+          "raw_value": "10",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "10, 11, 12, 11, 12",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Скручивания в висе",
+      "exercise_name_canonical": "скручивания в висе",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "12, 13, 14, 12, 12",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Жим штанги лёжа в наклонной скамье",
+      "exercise_name_canonical": "жим штанги лёжа в наклонной скамье",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 13,
+          "raw_value": "50х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 50,
+          "reps": 15,
+          "raw_value": "50х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 60,
+          "reps": 11,
+          "raw_value": "60х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 70,
+          "reps": 10,
+          "raw_value": "70х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 80,
+          "reps": 7,
+          "raw_value": "80х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 85,
+          "reps": 5,
+          "raw_value": "85х5",
+          "parse_note": null
+        },
+        {
+          "set_order": 8,
+          "weight_kg": 90,
+          "reps": 5,
+          "raw_value": "90х5",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х17, 50х13, 50х15, 60х11, 70х10, 80х7, 85х5, 90х5",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 8,
+      "exercise_name_raw": "Подъём гантелей на бицепс стоя",
+      "exercise_name_canonical": "подъём гантелей на бицепс стоя",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 14,
+          "reps": 13,
+          "raw_value": "14х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 16,
+          "reps": 11,
+          "raw_value": "16х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 18,
+          "reps": 8,
+          "raw_value": "18х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 22,
+          "reps": 7,
+          "raw_value": "22х7",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "14х13, 16х11,18х8, 22х7",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 9,
+      "exercise_name_raw": "Молотки гантелями на бицепс",
+      "exercise_name_canonical": "молотки гантелями на бицепс",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 18,
+          "reps": 13,
+          "raw_value": "18х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 12,
+          "raw_value": "20х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 24,
+          "reps": 9,
+          "raw_value": "24х9",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 26,
+          "reps": 8,
+          "raw_value": "26х8",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "18х13, 20х12, 24х9, 26х8",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 10,
+      "exercise_name_raw": "Кроссовер сверху",
+      "exercise_name_canonical": "кроссовер",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {
+        "cable_position": "high"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 25,
+          "reps": 12,
+          "raw_value": "25х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 25,
+          "reps": 15,
+          "raw_value": "25х15",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "25х12, 25х15",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 10.1,
+      "exercise_name_raw": "Кроссовер средняя высота",
+      "exercise_name_canonical": "кроссовер",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {
+        "cable_position": "mid"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 25,
+          "reps": 14,
+          "raw_value": "25х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 25,
+          "reps": 13,
+          "raw_value": "25х13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "25х14, 25х13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 10.2,
+      "exercise_name_raw": "Кроссовер снизу",
+      "exercise_name_canonical": "кроссовер",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {
+        "cable_position": "low"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 25,
+          "reps": 11,
+          "raw_value": "25х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 25,
+          "reps": 11,
+          "raw_value": "25х11",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "25х11, 25х11",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 11,
+      "exercise_name_raw": "Пуловер на спину (тяга верхний блок стоя в наклоне к поясу)",
+      "exercise_name_canonical": "пуловер на спину стоя в наклоне",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 50,
+          "reps": 14,
+          "raw_value": "50х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 15,
+          "raw_value": "50х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 50,
+          "reps": 14,
+          "raw_value": "50х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 15,
+          "raw_value": "50х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 50,
+          "reps": 15,
+          "raw_value": "50х15",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "50х14, 50х15, 50х14, 50х15, 50х15",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

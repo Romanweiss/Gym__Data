@@ -1,0 +1,78 @@
+{
+  "workout_id": "2026-02-13",
+  "date": "2026-02-13",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Ноги, Плечи, Трицепс",
+  "split_raw": [
+    "Грудь",
+    "Ноги",
+    "Плечи",
+    "Трицепс"
+  ],
+  "split_normalized": [
+    "chest",
+    "legs",
+    "shoulders",
+    "triceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Тяжёлый день с наклонным жимом штанги до 90 кг, работа на ноги в тренажёрах, брусья и трицепс в блоке; умеренно-высокий стресс.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Наклонный жим штанги",
+      "exercise_name_canonical": "жим штанги лёжа в наклонной скамье",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "До 90 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Ноги в тренажёрах",
+      "exercise_name_canonical": "разгибание бедра сидя в тренажёре поочерёдно каждой ногой",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Брусья",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Трицепс в блоке",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

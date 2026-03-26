@@ -1,0 +1,102 @@
+{
+  "workout_id": "2026-02-19",
+  "date": "2026-02-19",
+  "session_sequence": 1,
+  "title_raw": "Спина, Ноги, Задняя дельта",
+  "split_raw": [
+    "Спина",
+    "Ноги",
+    "Задняя дельта"
+  ],
+  "split_normalized": [
+    "back",
+    "legs",
+    "rear_delts"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Умеренно-объёмная тяговая сессия без тяжёлой осевой нагрузки — верхние блоки, пуловер, тяга гантелей лёжа, приводы/отводы, икры; акцент на заднюю дельту; короткое кардио в начале.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Верхние блоки",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Пуловер",
+      "exercise_name_canonical": "пуловер на спину стоя в наклоне",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Тяга гантелей лёжа",
+      "exercise_name_canonical": "тяга гантелей в наклонной скамье лёжа лицом вниз",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Приводы",
+      "exercise_name_canonical": "приведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Отводы",
+      "exercise_name_canonical": "отведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Икры",
+      "exercise_name_canonical": "подъёмы на икры сидя в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

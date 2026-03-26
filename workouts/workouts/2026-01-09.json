@@ -1,0 +1,121 @@
+{
+  "workout_id": "2026-01-09",
+  "date": "2026-01-09",
+  "session_sequence": 1,
+  "title_raw": "Спина, Ноги, Задняя дельта",
+  "split_raw": [
+    "Спина",
+    "Ноги",
+    "Задняя дельта"
+  ],
+  "split_normalized": [
+    "back",
+    "legs",
+    "rear_delts"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Большой объём тяговых упражнений (нижний и верхний блок), икры сидя, приводы/отводы бёдер, акцент на заднюю дельту; после — растяжка, сауна, контрастный душ.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Нижний блок",
+      "exercise_name_canonical": "тяга нижнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Верхний блок",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Икры сидя",
+      "exercise_name_canonical": "подъёмы на икры сидя в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Приводы бёдер",
+      "exercise_name_canonical": "приведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Отводы бёдер",
+      "exercise_name_canonical": "отведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Задняя дельта",
+      "exercise_name_canonical": "пек-дек на заднюю дельту",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

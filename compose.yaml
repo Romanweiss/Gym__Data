@@ -1,0 +1,108 @@
+name: gym__data
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-gym_data}
+      POSTGRES_USER: ${POSTGRES_USER:-gym_data}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-gym_data}
+    ports:
+      - "${POSTGRES_HOST_PORT:-55432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql/postgres/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  clickhouse:
+    image: clickhouse/clickhouse-server:24.8
+    environment:
+      CLICKHOUSE_DB: ${CLICKHOUSE_DATABASE:-gym_data_mart}
+      CLICKHOUSE_USER: ${CLICKHOUSE_USER:-gym_data}
+      CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-gym_data}
+      CLICKHOUSE_DEFAULT_ACCESS_MANAGEMENT: 1
+    ports:
+      - "${CLICKHOUSE_HTTP_HOST_PORT:-18123}:8123"
+      - "${CLICKHOUSE_NATIVE_HOST_PORT:-19000}:9000"
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse
+      - ./sql/clickhouse/init:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "clickhouse-client --user $$CLICKHOUSE_USER --password $$CLICKHOUSE_PASSWORD --query 'SELECT 1'",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    environment:
+      GYM_DATA_APP_NAME: Gym__Data Backend
+      GYM_DATA_POSTGRES_DSN: postgresql://${POSTGRES_USER:-gym_data}:${POSTGRES_PASSWORD:-gym_data}@postgres:5432/${POSTGRES_DB:-gym_data}
+      GYM_DATA_CLICKHOUSE_HOST: clickhouse
+      GYM_DATA_CLICKHOUSE_PORT: 8123
+      GYM_DATA_CLICKHOUSE_DATABASE: ${CLICKHOUSE_DATABASE:-gym_data_mart}
+      GYM_DATA_CLICKHOUSE_USER: ${CLICKHOUSE_USER:-gym_data}
+      GYM_DATA_CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-gym_data}
+      GYM_DATA_DEFAULT_PAGE_SIZE: 50
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    ports:
+      - "${BACKEND_HOST_PORT:-18080}:8000"
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "python",
+          "-c",
+          "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health/live', timeout=2).read()",
+        ]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+    restart: unless-stopped
+
+  ingestion:
+    build:
+      context: ./ingestion
+      dockerfile: Dockerfile
+    environment:
+      GYM_DATA_POSTGRES_DSN: postgresql://${POSTGRES_USER:-gym_data}:${POSTGRES_PASSWORD:-gym_data}@postgres:5432/${POSTGRES_DB:-gym_data}
+      GYM_DATA_CLICKHOUSE_HOST: clickhouse
+      GYM_DATA_CLICKHOUSE_PORT: 8123
+      GYM_DATA_CLICKHOUSE_DATABASE: ${CLICKHOUSE_DATABASE:-gym_data_mart}
+      GYM_DATA_CLICKHOUSE_USER: ${CLICKHOUSE_USER:-gym_data}
+      GYM_DATA_CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-gym_data}
+      GYM_DATA_WORKOUT_DATA_ROOT: /data/workouts
+      GYM_DATA_WORKOUT_SOURCE_DIR: /data/workouts/workouts
+      GYM_DATA_WORKOUT_SCHEMA_PATH: /data/workouts/schema/workout.schema.json
+      GYM_DATA_EXERCISE_DICTIONARY_PATH: /data/workouts/flat/exercise_dictionary.jsonl
+    depends_on:
+      postgres:
+        condition: service_healthy
+      clickhouse:
+        condition: service_healthy
+    volumes:
+      - ./workouts:/data/workouts:ro
+    command: ["python", "-m", "gym_data_ingestion.cli.main", "load-all"]
+    profiles: ["jobs"]
+    restart: "no"
+
+volumes:
+  postgres_data:
+  clickhouse_data:
+

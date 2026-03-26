@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS gym_data_mart;
+

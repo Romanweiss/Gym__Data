@@ -1,0 +1,63 @@
+{
+  "workout_id": "2026-01-25",
+  "date": "2026-01-25",
+  "session_sequence": 1,
+  "title_raw": "Плечи, Ноги, Задняя дельта",
+  "split_raw": [
+    "Плечи",
+    "Ноги",
+    "Задняя дельта"
+  ],
+  "split_normalized": [
+    "shoulders",
+    "legs",
+    "rear_delts"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Умеренно-силовая, с жимом штанги сидя, сгибаниями бёдер лёжа и акцентом на заднюю дельту; кардио до и после.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Жим штанги сидя",
+      "exercise_name_canonical": "жим штанги сидя",
+      "category": "strength",
+      "load_type": "barbell_or_kettlebell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Сгибания бёдер лёжа",
+      "exercise_name_canonical": "сгибание бедра",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Задняя дельта",
+      "exercise_name_canonical": "пек-дек на заднюю дельту",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

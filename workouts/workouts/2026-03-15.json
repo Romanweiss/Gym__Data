@@ -1,0 +1,204 @@
+{
+  "workout_id": "2026-03-15",
+  "date": "2026-03-15",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Бицепс",
+  "split_raw": [
+    "Ноги",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "legs",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "15.03.2026 Ноги, Бицепс\n1. Приседания со штангой 20х20, 20х17, 20х15, 60х12, 80х8, 105х7, 125х3, 125х3\n2. Подъём штанги на бицепс стоя 20х17, 20х17, 30х13, 40х8, 40х9, 40х8, 45х7, 45х6\n3. Разгибатель бедра сидя в тренажёре поочерёдно каждой ногой (указана нагрузка на 1 ногу) 27.5х11, 42.5x9, 52.5x6, 52.5x6",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 20,
+          "raw_value": "20х20",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 20,
+          "reps": 15,
+          "raw_value": "20х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 60,
+          "reps": 12,
+          "raw_value": "60х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 80,
+          "reps": 8,
+          "raw_value": "80х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 105,
+          "reps": 7,
+          "raw_value": "105х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 125,
+          "reps": 3,
+          "raw_value": "125х3",
+          "parse_note": null
+        },
+        {
+          "set_order": 8,
+          "weight_kg": 125,
+          "reps": 3,
+          "raw_value": "125х3",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х20, 20х17, 20х15, 60х12, 80х8, 105х7, 125х3, 125х3",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Подъём штанги на бицепс стоя",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 30,
+          "reps": 13,
+          "raw_value": "30х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 40,
+          "reps": 8,
+          "raw_value": "40х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 40,
+          "reps": 9,
+          "raw_value": "40х9",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 40,
+          "reps": 8,
+          "raw_value": "40х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 45,
+          "reps": 7,
+          "raw_value": "45х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 8,
+          "weight_kg": 45,
+          "reps": 6,
+          "raw_value": "45х6",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х17, 20х17, 30х13, 40х8, 40х9, 40х8, 45х7, 45х6",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Разгибатель бедра сидя в тренажёре поочерёдно каждой ногой (указана нагрузка на 1 ногу)",
+      "exercise_name_canonical": "разгибание бедра сидя в тренажёре поочерёдно каждой ногой",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 27.5,
+          "reps": 11,
+          "raw_value": "27.5х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 42.5,
+          "reps": 9,
+          "raw_value": "42.5x9",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 52.5,
+          "reps": 6,
+          "raw_value": "52.5x6",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 52.5,
+          "reps": 6,
+          "raw_value": "52.5x6",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "27.5х11, 42.5x9, 52.5x6, 52.5x6",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

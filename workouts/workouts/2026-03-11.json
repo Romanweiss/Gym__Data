@@ -1,0 +1,419 @@
+{
+  "workout_id": "2026-03-11",
+  "date": "2026-03-11",
+  "session_sequence": 1,
+  "title_raw": "Спина, Ноги, Задняя дельта",
+  "split_raw": [
+    "Спина",
+    "Ноги",
+    "Задняя дельта"
+  ],
+  "split_normalized": [
+    "back",
+    "legs",
+    "rear_delts"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "11.03.2026 Спина, Ноги, Задняя дельта\n1. Кардио - эллиптический тренажёр вперёд 6 минут\n2. Кардио - эллиптический тренажёр назад 2 минуты\n3. Тяга верхнего блока сидя широким хватом 40х17, 50х12, 60х12, 65х11, 70х10\n4. Привода 70х13, 75х12, 75х13, 75х12, 75х13\n5. Отвода 70х14, 75х11, 75х12, 75х12, 75х12\n6. Тяга гантелей в наклонной скамье лёжа лицом вниз 26х12, 32х10, 40х9, 40х9, 40х9\n7. Пуловер канат на заднюю дельту 40х12, 45х12, 45х11, 45х12, 45х13\n8. Скручивания на шаре 15, 14, 15, 15, 16\n9. Пуловер на спину стоя в наклоне (тяга верхнего блока стоя к поясу канат) 50х13, 50х15, 55х12, 55х11\n10. Пек дек на заднюю дельту 50х12, 50х10, 50х11, 50х11",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 6,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Тяга верхнего блока сидя широким хватом",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {
+        "grip": "wide"
+      },
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 40,
+          "reps": 17,
+          "raw_value": "40х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 12,
+          "raw_value": "50х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 60,
+          "reps": 12,
+          "raw_value": "60х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 65,
+          "reps": 11,
+          "raw_value": "65х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 70,
+          "reps": 10,
+          "raw_value": "70х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "40х17, 50х12, 60х12, 65х11, 70х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Привода",
+      "exercise_name_canonical": "приведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 70,
+          "reps": 13,
+          "raw_value": "70х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 75,
+          "reps": 12,
+          "raw_value": "75х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 75,
+          "reps": 13,
+          "raw_value": "75х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 75,
+          "reps": 12,
+          "raw_value": "75х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 75,
+          "reps": 13,
+          "raw_value": "75х13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "70х13, 75х12, 75х13, 75х12, 75х13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Отвода",
+      "exercise_name_canonical": "отведение бедра в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 70,
+          "reps": 14,
+          "raw_value": "70х14",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 75,
+          "reps": 11,
+          "raw_value": "75х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 75,
+          "reps": 12,
+          "raw_value": "75х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 75,
+          "reps": 12,
+          "raw_value": "75х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 75,
+          "reps": 12,
+          "raw_value": "75х12",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "70х14, 75х11, 75х12, 75х12, 75х12",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Тяга гантелей в наклонной скамье лёжа лицом вниз",
+      "exercise_name_canonical": "тяга гантелей в наклонной скамье лёжа лицом вниз",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 26,
+          "reps": 12,
+          "raw_value": "26х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 32,
+          "reps": 10,
+          "raw_value": "32х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 40,
+          "reps": 9,
+          "raw_value": "40х9",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 40,
+          "reps": 9,
+          "raw_value": "40х9",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 40,
+          "reps": 9,
+          "raw_value": "40х9",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "26х12, 32х10, 40х9, 40х9, 40х9",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Пуловер канат на заднюю дельту",
+      "exercise_name_canonical": "пуловер канатом на заднюю дельту",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 40,
+          "reps": 12,
+          "raw_value": "40х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 45,
+          "reps": 12,
+          "raw_value": "45х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 45,
+          "reps": 11,
+          "raw_value": "45х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 45,
+          "reps": 12,
+          "raw_value": "45х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 45,
+          "reps": 13,
+          "raw_value": "45х13",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "40х12, 45х12, 45х11, 45х12, 45х13",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 8,
+      "exercise_name_raw": "Скручивания на шаре",
+      "exercise_name_canonical": "скручивания на шаре",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 15,
+          "raw_value": "15",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 15,
+          "raw_value": "15",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 15,
+          "raw_value": "15",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 16,
+          "raw_value": "16",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "15, 14, 15, 15, 16",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 9,
+      "exercise_name_raw": "Пуловер на спину стоя в наклоне (тяга верхнего блока стоя к поясу канат)",
+      "exercise_name_canonical": "пуловер на спину стоя в наклоне",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 50,
+          "reps": 13,
+          "raw_value": "50х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 15,
+          "raw_value": "50х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 55,
+          "reps": 12,
+          "raw_value": "55х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 55,
+          "reps": 11,
+          "raw_value": "55х11",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "50х13, 50х15, 55х12, 55х11",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 10,
+      "exercise_name_raw": "Пек дек на заднюю дельту",
+      "exercise_name_canonical": "пек-дек на заднюю дельту",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 50,
+          "reps": 12,
+          "raw_value": "50х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 10,
+          "raw_value": "50х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 50,
+          "reps": 11,
+          "raw_value": "50х11",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 11,
+          "raw_value": "50х11",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "50х12, 50х10, 50х11, 50х11",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}
