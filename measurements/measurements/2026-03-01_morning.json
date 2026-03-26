@@ -1,0 +1,23 @@
+{
+  "measurement_session_id": "2026-03-01_morning",
+  "subject_profile_id": "subject_default",
+  "measured_at": "2026-03-01T08:00:00",
+  "source_type": "manual_entry",
+  "source_quality": "measured_direct",
+  "context_time_of_day": "morning",
+  "fasting_state": true,
+  "before_training": true,
+  "notes": "Latest recorded session before a longer measurement gap.",
+  "measurements": [
+    {"order_in_session": 1, "measurement_type_raw": "плечи", "value_numeric": 122.8, "unit": "cm", "raw_value": "122.8 см", "notes": null},
+    {"order_in_session": 2, "measurement_type_raw": "шея", "value_numeric": 40.7, "unit": "cm", "raw_value": "40.7 см", "notes": null},
+    {"order_in_session": 3, "measurement_type_raw": "грудь", "value_numeric": 108.6, "unit": "cm", "raw_value": "108.6 см", "notes": null},
+    {"order_in_session": 4, "measurement_type_raw": "талия", "value_numeric": 92.9, "unit": "cm", "raw_value": "92.9 см", "notes": null},
+    {"order_in_session": 5, "measurement_type_raw": "бедра", "value_numeric": 101.0, "unit": "cm", "raw_value": "101 см", "notes": null},
+    {"order_in_session": 6, "measurement_type_raw": "бедро", "value_numeric": 61.4, "unit": "cm", "raw_value": "61.4 см", "notes": null},
+    {"order_in_session": 7, "measurement_type_raw": "икра", "value_numeric": 39.2, "unit": "cm", "raw_value": "39.2 см", "notes": null},
+    {"order_in_session": 8, "measurement_type_raw": "бицепс", "value_numeric": 37.8, "unit": "cm", "raw_value": "37.8 см", "notes": null},
+    {"order_in_session": 9, "measurement_type_raw": "предплечье", "value_numeric": 31.0, "unit": "cm", "raw_value": "31 см", "notes": null},
+    {"order_in_session": 10, "measurement_type_raw": "вес", "value_numeric": 92.6, "unit": "kg", "raw_value": "92.6 кг", "notes": null}
+  ]
+}

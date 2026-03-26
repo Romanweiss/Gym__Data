@@ -5,4 +5,7 @@ CREATE INDEX IF NOT EXISTS idx_exercise_instances_canonical ON raw.exercise_inst
 CREATE INDEX IF NOT EXISTS idx_sets_workout ON raw.sets (workout_id);
 CREATE INDEX IF NOT EXISTS idx_cardio_workout ON raw.cardio_segments (workout_id);
 CREATE INDEX IF NOT EXISTS idx_recovery_workout ON raw.recovery_events (workout_id);
-
+CREATE INDEX IF NOT EXISTS idx_measurement_sessions_date ON raw.body_measurement_sessions (measured_date DESC);
+CREATE INDEX IF NOT EXISTS idx_measurement_sessions_subject_date ON raw.body_measurement_sessions (subject_profile_id, measured_date DESC);
+CREATE INDEX IF NOT EXISTS idx_measurement_values_session ON raw.body_measurement_values (measurement_session_id);
+CREATE INDEX IF NOT EXISTS idx_measurement_values_canonical ON raw.body_measurement_values (measurement_type_canonical);

@@ -56,6 +56,8 @@ services:
       GYM_DATA_CLICKHOUSE_USER: ${CLICKHOUSE_USER:-gym_data}
       GYM_DATA_CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-gym_data}
       GYM_DATA_DEFAULT_PAGE_SIZE: 50
+      GYM_DATA_DEFAULT_SUBJECT_PROFILE_ID: ${DEFAULT_SUBJECT_PROFILE_ID:-subject_default}
+      GYM_DATA_MEASUREMENT_RECOMMENDATION_CADENCE_DAYS: ${MEASUREMENT_RECOMMENDATION_CADENCE_DAYS:-21}
     depends_on:
       postgres:
         condition: service_healthy
@@ -92,6 +94,13 @@ services:
       GYM_DATA_WORKOUT_FLAT_DIR: /data/workouts/flat
       GYM_DATA_WORKOUT_SCHEMA_PATH: /data/workouts/schema/workout.schema.json
       GYM_DATA_EXERCISE_DICTIONARY_PATH: /data/workouts/flat/exercise_dictionary.jsonl
+      GYM_DATA_MEASUREMENT_DATA_ROOT: /data/measurements
+      GYM_DATA_MEASUREMENT_SOURCE_DIR: /data/measurements/measurements
+      GYM_DATA_MEASUREMENT_FLAT_DIR: /data/measurements/flat
+      GYM_DATA_MEASUREMENT_SCHEMA_PATH: /data/measurements/schema/measurement_session.schema.json
+      GYM_DATA_MEASUREMENT_TYPE_DICTIONARY_PATH: /data/measurements/flat/measurement_type_dictionary.jsonl
+      GYM_DATA_DEFAULT_SUBJECT_PROFILE_ID: ${DEFAULT_SUBJECT_PROFILE_ID:-subject_default}
+      GYM_DATA_MEASUREMENT_RECOMMENDATION_CADENCE_DAYS: ${MEASUREMENT_RECOMMENDATION_CADENCE_DAYS:-21}
     depends_on:
       postgres:
         condition: service_healthy
@@ -99,6 +108,7 @@ services:
         condition: service_healthy
     volumes:
       - ./workouts:/data/workouts:ro
+      - ./measurements:/data/measurements:ro
     command: ["python", "-m", "gym_data_ingestion.cli.main", "load-all"]
     profiles: ["jobs"]
     restart: "no"

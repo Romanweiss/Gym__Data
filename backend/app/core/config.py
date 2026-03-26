@@ -14,9 +14,10 @@ class Settings(BaseSettings):
     clickhouse_user: str = "gym_data"
     clickhouse_password: str = "gym_data"
     default_page_size: int = 50
+    default_subject_profile_id: str = "subject_default"
+    measurement_recommendation_cadence_days: int = 21
 
 
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

@@ -2,14 +2,17 @@
 
 ## Source of truth
 
-- logical source layer: `workouts/*.json`
-- current repository path: `workouts/workouts/*.json`
+- workout source layer: `workouts/*.json`
+- current workout repository path: `workouts/workouts/*.json`
+- measurement source layer: `measurements/*.json`
+- current measurement repository path: `measurements/measurements/*.json`
 
-The `workouts/flat/*.jsonl` files are derived artifacts and are never treated as the primary source for workout facts.
+The `workouts/flat/*.jsonl` and `measurements/flat/*.jsonl` files are derived artifacts and are never treated as the primary source for facts.
 
 Exception:
 
 - `workouts/flat/exercise_dictionary.jsonl` is used as curated enrichment for aliases and muscle metadata that is not fully present in the nested workout source files
+- `measurements/flat/measurement_type_dictionary.jsonl` is used as curated enrichment for canonical measurement aliases, units, and categories
 
 ## Current dataset snapshot
 
@@ -23,6 +26,10 @@ Based on the current repository dataset:
 - detailed workouts: `11`
 - partial raw workouts: `1`
 - summary-only workouts: `31`
+- subject profiles: `1`
+- measurement sessions: `4`
+- measurement values: `40`
+- canonical measurement types: `10`
 
 ## RAW entities
 
@@ -115,6 +122,69 @@ Purpose:
 - muscle metadata
 - load/category defaults
 
+### `raw.subject_profiles`
+
+Primary key:
+
+- `subject_profile_id`
+
+Purpose:
+
+- minimal subject placeholder for future users/clients
+- default single-user ownership anchor for measurements
+- migration-safe extension point for auth and multi-tenant growth
+
+### `raw.measurement_type_dictionary`
+
+Primary key:
+
+- `measurement_type_canonical`
+
+Purpose:
+
+- stable canonical measurement dimension
+- aliases and normalization rules
+- default unit
+- category and sort order
+- `value_kind` such as `circumference` or `weight`
+
+### `raw.body_measurement_sessions`
+
+Primary key:
+
+- `measurement_session_id`
+
+Foreign keys:
+
+- `subject_profile_id -> raw.subject_profiles.subject_profile_id`
+
+Purpose:
+
+- one session = one point-in-time body measurement event
+- preserves context such as `measured_at`, `context_time_of_day`, `fasting_state`, and `before_training`
+- preserves `source_type` and `source_quality`
+
+### `raw.body_measurement_values`
+
+Primary key:
+
+- `measurement_value_id`
+
+Foreign keys:
+
+- `measurement_session_id -> raw.body_measurement_sessions.measurement_session_id`
+- `measurement_type_canonical -> raw.measurement_type_dictionary.measurement_type_canonical`
+
+Logical key:
+
+- `(measurement_session_id, order_in_session)`
+
+Purpose:
+
+- one row per measurement value inside a session
+- keeps canonical type, raw type, numeric value, unit, notes, parse note, and optional side/scope
+- supports body weight without inventing extra body composition metrics
+
 ## Derived analytical layer
 
 ### `gym_data_mart.mart_workout_summary`
@@ -188,6 +258,52 @@ Weekly recovery summary by:
 - recovery event count
 - recovery minutes
 
+### `gym_data_mart.mart_measurement_progress`
+
+Timeline of measurement values with:
+
+- subject profile
+- canonical measurement type
+- previous value and delta
+- days since previous measurement
+- workouts/cardio/recovery activity between comparable measurement sessions
+
+### `gym_data_mart.mart_measurement_deltas`
+
+Value-to-previous comparison layer with:
+
+- current value
+- previous value
+- delta
+- days since previous comparable measurement
+
+### `gym_data_mart.mart_measurement_latest`
+
+Latest known value per measurement type with:
+
+- latest session/date
+- previous session/date
+- latest value
+- delta to previous
+
+### `gym_data_mart.mart_measurement_overdue`
+
+Cadence/recommendation layer with:
+
+- last measurement date
+- days since last measurement
+- workouts since last measurement
+- recommendation status and reason
+
+### `gym_data_mart.mart_measurement_vs_workout_activity`
+
+Analytical bridge between measurements and workout history with:
+
+- workouts between measurement sessions
+- set/rep/volume totals where real raw facts exist
+- cardio and recovery minutes
+- last workout before each measurement session
+
 ## Business rules enforced in ingestion
 
 - canonical exercise names remain keyed by `exercise_name_canonical`
@@ -199,6 +315,13 @@ Weekly recovery summary by:
 - `summary_only` workouts and exercises must not be treated as real set-level raw facts
 - duplicate workout ids, exercise orders, set orders, cardio orders, and recovery orders are rejected
 - source order for exercises/cardio/recovery must remain ascending
+- canonical measurement types remain keyed by `measurement_type_canonical`
+- spelling variants such as localized aliases must normalize to canonical measurement types, not create duplicates
+- measurement units must stay explicit and comparable; unsupported conversions are rejected instead of guessed
+- missing measurement unit may default from the canonical dictionary only when the type is unambiguous, and the loader must preserve a parse note
+- `body_weight` is a first-class measurement type, not a special side channel
+- no body composition metrics are invented beyond the actual recorded data
+- default measurement cadence is configurable and documented, not treated as medical truth
 
 ## Detail API contract
 
@@ -215,6 +338,19 @@ Weekly recovery summary by:
 
 This endpoint is intended to be UI/mobile-friendly without making ClickHouse the source of detail truth.
 
+`GET /api/measurements/{measurement_session_id}` is assembled from PostgreSQL RAW and returns:
+
+- measurement session metadata
+- subject profile placeholder
+- stable ordered measurement values
+- canonical measurement names
+- raw names, units, parse notes, and quality/context fields
+
+`GET /api/measurements/latest`, `GET /api/measurements/progress`, and `GET /api/measurements/overdue` read from ClickHouse or RAW according to responsibility:
+
+- PostgreSQL for source-oriented detail and recommendation context
+- ClickHouse for latest/progress analytical views
+
 ## Reconciliation contract
 
 The reconciliation flow compares:
@@ -222,6 +358,9 @@ The reconciliation flow compares:
 - source `workouts/workouts/*.json`
 - derived `workouts/flat/*.jsonl`
 - PostgreSQL `raw.*`
+- source `measurements/measurements/*.json`
+- derived `measurements/flat/*.jsonl`
+- PostgreSQL measurement raw tables
 
 Minimum checks:
 
@@ -232,19 +371,22 @@ Minimum checks:
 - mismatched `exercise_instance_id`
 - broken ordering
 - duplicate logical rows
+- mismatched `measurement_session_id`
+- broken measurement ordering
+- duplicate measurement logical rows
 
 Serious mismatches return non-zero exit status.
 
 ## Loading strategy
 
-Stage 1.1 still uses deterministic full refresh:
+Stage 1.2 still uses deterministic full refresh:
 
 1. validate source JSON schema
 2. validate data-contract rules
-3. flatten nested documents
+3. flatten workout and measurement documents in parallel domains
 4. truncate and reload PostgreSQL RAW tables
 5. rebuild ClickHouse MART tables
 6. record the ingestion run
-7. optionally reconcile source, flat, and RAW layers
+7. optionally reconcile source, flat, and RAW layers for both domains
 
 This keeps the foundation simple, auditable, and safe to extend later.

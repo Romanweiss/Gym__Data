@@ -79,6 +79,22 @@ with urllib.request.urlopen(endpoint, timeout=20) as response:
     Invoke-RestMethod -Uri "http://localhost:$backendPort/api/analytics/recovery?limit=4" -TimeoutSec 20 | Out-Null
     Write-Host "[ok] /api/analytics/recovery"
 
+    $measurementsResponse = Invoke-RestMethod -Uri "http://localhost:$backendPort/api/measurements/?limit=2" -TimeoutSec 20
+    Write-Host "[ok] /api/measurements/"
+
+    $measurementSessionId = [string]$measurementsResponse.items[0].measurement_session_id
+    Invoke-RestMethod -Uri "http://localhost:$backendPort/api/measurements/$measurementSessionId" -TimeoutSec 20 | Out-Null
+    Write-Host "[ok] /api/measurements/$measurementSessionId"
+
+    Invoke-RestMethod -Uri "http://localhost:$backendPort/api/measurements/latest" -TimeoutSec 20 | Out-Null
+    Write-Host "[ok] /api/measurements/latest"
+
+    Invoke-RestMethod -Uri "http://localhost:$backendPort/api/measurements/progress?measurement_type=waist" -TimeoutSec 20 | Out-Null
+    Write-Host "[ok] /api/measurements/progress"
+
+    Invoke-RestMethod -Uri "http://localhost:$backendPort/api/measurements/overdue" -TimeoutSec 20 | Out-Null
+    Write-Host "[ok] /api/measurements/overdue"
+
     $summaryResponse = Invoke-RestMethod -Uri "http://localhost:$backendPort/api/summary/" -TimeoutSec 20
     Write-Host "[ok] /api/summary/"
     Write-Host ($summaryResponse.totals | ConvertTo-Json -Compress)

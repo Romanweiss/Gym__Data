@@ -172,3 +172,107 @@ SELECT
     max(progress.workout_date) AS last_performed_date
 FROM gym_data_mart.mart_exercise_progress AS progress
 GROUP BY progress.exercise_name_canonical;
+
+CREATE TABLE IF NOT EXISTS gym_data_mart.mart_measurement_progress
+(
+    subject_profile_id String,
+    measurement_session_id String,
+    measured_at DateTime,
+    measured_date Date,
+    measurement_type_canonical String,
+    measurement_type_raw String,
+    category LowCardinality(String),
+    value_kind LowCardinality(String),
+    sort_order UInt16,
+    unit LowCardinality(String),
+    side_or_scope Nullable(String),
+    source_quality LowCardinality(String),
+    context_time_of_day LowCardinality(String),
+    value_numeric Float64,
+    previous_measurement_session_id Nullable(String),
+    previous_measured_date Nullable(Date),
+    previous_value_numeric Nullable(Float64),
+    delta_value_numeric Nullable(Float64),
+    days_since_previous Nullable(UInt32),
+    workouts_since_previous_measurement UInt32,
+    total_sets_since_previous_measurement UInt32,
+    total_reps_since_previous_measurement UInt32,
+    total_volume_kg_since_previous_measurement Float64,
+    cardio_minutes_since_previous_measurement UInt32,
+    recovery_minutes_since_previous_measurement UInt32
+)
+ENGINE = MergeTree
+ORDER BY (subject_profile_id, measurement_type_canonical, measured_date, measurement_session_id);
+
+CREATE TABLE IF NOT EXISTS gym_data_mart.mart_measurement_deltas
+(
+    subject_profile_id String,
+    measurement_session_id String,
+    measured_date Date,
+    measurement_type_canonical String,
+    unit LowCardinality(String),
+    value_numeric Float64,
+    previous_measurement_session_id Nullable(String),
+    previous_measured_date Nullable(Date),
+    previous_value_numeric Nullable(Float64),
+    delta_value_numeric Nullable(Float64),
+    days_since_previous Nullable(UInt32)
+)
+ENGINE = MergeTree
+ORDER BY (subject_profile_id, measurement_type_canonical, measured_date, measurement_session_id);
+
+CREATE TABLE IF NOT EXISTS gym_data_mart.mart_measurement_latest
+(
+    subject_profile_id String,
+    measurement_type_canonical String,
+    category LowCardinality(String),
+    value_kind LowCardinality(String),
+    sort_order UInt16,
+    unit LowCardinality(String),
+    latest_measurement_session_id String,
+    latest_measured_at DateTime,
+    latest_measured_date Date,
+    latest_value_numeric Float64,
+    previous_measurement_session_id Nullable(String),
+    previous_measured_date Nullable(Date),
+    previous_value_numeric Nullable(Float64),
+    delta_value_numeric Nullable(Float64),
+    days_since_previous Nullable(UInt32)
+)
+ENGINE = MergeTree
+ORDER BY (subject_profile_id, sort_order, measurement_type_canonical);
+
+CREATE TABLE IF NOT EXISTS gym_data_mart.mart_measurement_overdue
+(
+    subject_profile_id String,
+    cadence_days UInt16,
+    last_measurement_session_id String,
+    last_measured_at DateTime,
+    last_measured_date Date,
+    days_since_last_measurement UInt32,
+    workouts_since_last_measurement UInt32,
+    last_workout_date Nullable(Date),
+    recommended_now UInt8,
+    recommendation_reason String
+)
+ENGINE = MergeTree
+ORDER BY subject_profile_id;
+
+CREATE TABLE IF NOT EXISTS gym_data_mart.mart_measurement_vs_workout_activity
+(
+    subject_profile_id String,
+    measurement_session_id String,
+    measured_date Date,
+    previous_measurement_session_id Nullable(String),
+    previous_measured_date Nullable(Date),
+    workouts_since_previous_measurement UInt32,
+    total_sets_since_previous_measurement UInt32,
+    total_reps_since_previous_measurement UInt32,
+    total_volume_kg_since_previous_measurement Float64,
+    cardio_minutes_since_previous_measurement UInt32,
+    recovery_minutes_since_previous_measurement UInt32,
+    last_workout_before_measurement_id Nullable(String),
+    last_workout_before_measurement_date Nullable(Date)
+)
+ENGINE = MergeTree
+ORDER BY (subject_profile_id, measured_date, measurement_session_id);

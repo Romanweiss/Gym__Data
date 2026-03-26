@@ -31,7 +31,7 @@ If one of them is occupied, update `.env` before startup.
 docker compose up -d --build
 ```
 
-## 4. Load the workout dataset
+## 4. Load the datasets
 
 ```powershell
 docker compose --profile jobs run --rm ingestion
@@ -40,9 +40,17 @@ docker compose --profile jobs run --rm ingestion
 This command:
 
 - validates `workouts/workouts/*.json`
+- validates `measurements/measurements/*.json`
 - applies data-contract checks
-- loads PostgreSQL RAW tables
-- rebuilds ClickHouse marts
+- loads PostgreSQL RAW tables for both domains
+- rebuilds ClickHouse marts for both domains
+
+Domain-specific ingestion commands:
+
+```powershell
+docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-workouts
+docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main load-measurements
+```
 
 ## 5. Reconcile source, flat, and RAW
 
@@ -55,6 +63,13 @@ Expected behavior:
 - prints a text reconciliation report
 - exits with code `0` on pass
 - exits with non-zero code on serious mismatches
+
+Domain-specific reconciliation commands:
+
+```powershell
+docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile-workouts
+docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile-measurements
+```
 
 ## 6. Run automated tests
 
@@ -85,12 +100,18 @@ Core endpoints:
 - weekly analytics: `http://localhost:18080/api/analytics/weekly-load`
 - cardio analytics: `http://localhost:18080/api/analytics/cardio`
 - recovery analytics: `http://localhost:18080/api/analytics/recovery`
+- measurement sessions: `http://localhost:18080/api/measurements/`
+- measurement detail: `http://localhost:18080/api/measurements/{measurement_session_id}`
+- latest measurements: `http://localhost:18080/api/measurements/latest`
+- measurement progress: `http://localhost:18080/api/measurements/progress?measurement_type=waist`
+- measurement overdue status: `http://localhost:18080/api/measurements/overdue`
 - overall summary: `http://localhost:18080/api/summary/`
 
 Example:
 
 ```powershell
 Invoke-RestMethod http://localhost:18080/api/workouts/2026-03-08
+Invoke-RestMethod http://localhost:18080/api/measurements/2026-03-01_morning
 ```
 
 ## 8. Smoke check
@@ -148,5 +169,6 @@ docker compose down -v
 ## 10. Troubleshooting notes
 
 - if ports are busy, change `.env` first instead of editing compose defaults directly
-- if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.1 mart tables/views with `CREATE ... IF NOT EXISTS`
+- if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.2 mart tables/views with `CREATE ... IF NOT EXISTS`
 - if reconciliation fails, inspect the report before reloading; do not assume the flat layer or RAW layer is correct
+- `MEASUREMENT_RECOMMENDATION_CADENCE_DAYS` and `DEFAULT_SUBJECT_PROFILE_ID` can be overridden in `.env` without changing code

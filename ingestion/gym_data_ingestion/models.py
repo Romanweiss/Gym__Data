@@ -52,7 +52,7 @@ def read_source_documents(source_dir: Path) -> list[SourceDocument]:
             )
         )
     if not documents:
-        raise DatasetValidationError(f"No workout source files found in {source_dir}")
+        raise DatasetValidationError(f"No source JSON files found in {source_dir}")
     return documents
 
 

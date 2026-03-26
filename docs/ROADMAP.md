@@ -27,14 +27,27 @@ Hardening and analytics layer completed in this step:
 
 ## Stage 1.2
 
+Body progress foundation completed in this step:
+
+- body measurement source-of-truth structure
+- PostgreSQL RAW tables for subject profiles, measurement sessions, and measurement values
+- canonical measurement type dictionary
+- ingestion, validation, and reconciliation for measurements
+- ClickHouse marts for latest values, deltas, overdue cadence, and workout-activity bridge
+- measurement API endpoints for detail, latest values, progress, and overdue recommendation
+- auth-ready subject/profile extension point without enabling full auth flows
+- container-friendly tests for measurement schema, normalization, analytics, API, and reconciliation
+
+## Stage 1.3
+
 Logical next hardening step:
 
-- detail endpoint filters and pagination helpers for future UI
-- richer query params for workouts and exercises
-- first metadata tables for clubs/users without enabling full auth flows
-- scheduled ingestion runner and operational status endpoints
-- CI wiring for tests plus reconciliation job
+- `POST /api/measurements/` write path with safe validation and id generation
+- richer filters and pagination helpers for workouts, exercises, and measurements
+- CI wiring for backend tests, ingestion tests, reconciliation, and smoke checks
+- operational status endpoints and ingestion-run visibility
 - mart-level regression checks against future dataset growth
+- first optional reminders/notification contracts without implementing the delivery engine
 
 ## Stage 2
 
@@ -43,6 +56,7 @@ Platform boundaries without breaking the current data core:
 - `clubs` for tenant boundaries
 - `identity` for auth, sessions, and role contracts
 - `trainers` and `clients` for actor ownership
+- per-client body progress ownership and trainer-visible progress history
 - `programs` for plans and assignments
 - `attendance` for check-ins and facility usage
 - `memberships` and `payments` for subscription/billing boundaries
@@ -55,7 +69,7 @@ Product-facing surfaces:
 - trainer workspace
 - client-facing application surfaces
 - mobile-ready API expansion
-- operational dashboards for workouts, attendance, and progress
+- operational dashboards for workouts, body progress, attendance, and overall progress
 
 ## Stage 4
 

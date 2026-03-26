@@ -18,6 +18,15 @@ class Settings(BaseSettings):
     workout_flat_dir: Path = Path("/data/workouts/flat")
     workout_schema_path: Path = Path("/data/workouts/schema/workout.schema.json")
     exercise_dictionary_path: Path = Path("/data/workouts/flat/exercise_dictionary.jsonl")
+    measurement_data_root: Path = Path("/data/measurements")
+    measurement_source_dir: Path = Path("/data/measurements/measurements")
+    measurement_flat_dir: Path = Path("/data/measurements/flat")
+    measurement_schema_path: Path = Path("/data/measurements/schema/measurement_session.schema.json")
+    measurement_type_dictionary_path: Path = Path(
+        "/data/measurements/flat/measurement_type_dictionary.jsonl"
+    )
+    default_subject_profile_id: str = "subject_default"
+    measurement_recommendation_cadence_days: int = 21
 
 
 @lru_cache

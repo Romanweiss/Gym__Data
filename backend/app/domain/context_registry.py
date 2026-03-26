@@ -2,6 +2,7 @@ CURRENT_BOUNDED_CONTEXTS = (
     "workouts",
     "exercises",
     "analytics",
+    "measurements",
 )
 
 FUTURE_BOUNDED_CONTEXTS = (
@@ -14,4 +15,3 @@ FUTURE_BOUNDED_CONTEXTS = (
     "attendance",
     "programs",
 )
-

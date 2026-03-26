@@ -1,0 +1,10 @@
+{"measurement_type_canonical":"shoulders","aliases":["плечи","обхват плеч"],"default_unit":"cm","category":"upper_body","sort_order":1,"value_kind":"circumference"}
+{"measurement_type_canonical":"neck","aliases":["шея","обхват шеи"],"default_unit":"cm","category":"upper_body","sort_order":2,"value_kind":"circumference"}
+{"measurement_type_canonical":"chest","aliases":["грудь","грудная клетка"],"default_unit":"cm","category":"torso","sort_order":3,"value_kind":"circumference"}
+{"measurement_type_canonical":"waist","aliases":["талия","обхват талии"],"default_unit":"cm","category":"core","sort_order":4,"value_kind":"circumference"}
+{"measurement_type_canonical":"hips","aliases":["бедра","обхват бедер"],"default_unit":"cm","category":"lower_body","sort_order":5,"value_kind":"circumference"}
+{"measurement_type_canonical":"thigh","aliases":["бедро","обхват бедра"],"default_unit":"cm","category":"lower_body","sort_order":6,"value_kind":"circumference"}
+{"measurement_type_canonical":"calf","aliases":["икра","икроножная"],"default_unit":"cm","category":"lower_body","sort_order":7,"value_kind":"circumference"}
+{"measurement_type_canonical":"biceps","aliases":["бицепс","обхват бицепса"],"default_unit":"cm","category":"upper_body","sort_order":8,"value_kind":"circumference"}
+{"measurement_type_canonical":"forearm","aliases":["предплечье","обхват предплечья"],"default_unit":"cm","category":"upper_body","sort_order":9,"value_kind":"circumference"}
+{"measurement_type_canonical":"body_weight","aliases":["вес","масса тела","вес тела"],"default_unit":"kg","category":"body_mass","sort_order":10,"value_kind":"weight"}

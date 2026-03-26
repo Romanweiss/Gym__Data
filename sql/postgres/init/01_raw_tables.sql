@@ -77,3 +77,56 @@ CREATE TABLE IF NOT EXISTS raw.exercise_dictionary (
     source_payload JSONB NOT NULL,
     loaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
+
+CREATE TABLE IF NOT EXISTS raw.subject_profiles (
+    subject_profile_id TEXT PRIMARY KEY,
+    profile_kind TEXT NOT NULL DEFAULT 'person_placeholder',
+    display_name TEXT NOT NULL,
+    is_default BOOLEAN NOT NULL DEFAULT FALSE,
+    notes TEXT,
+    source_payload JSONB NOT NULL DEFAULT '{}'::jsonb,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS raw.measurement_type_dictionary (
+    measurement_type_canonical TEXT PRIMARY KEY,
+    aliases TEXT[] NOT NULL DEFAULT '{}',
+    default_unit TEXT NOT NULL,
+    category TEXT NOT NULL,
+    sort_order INTEGER NOT NULL,
+    value_kind TEXT NOT NULL CHECK (value_kind IN ('circumference', 'weight')),
+    source_payload JSONB NOT NULL,
+    loaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS raw.body_measurement_sessions (
+    measurement_session_id TEXT PRIMARY KEY,
+    subject_profile_id TEXT NOT NULL REFERENCES raw.subject_profiles (subject_profile_id) ON DELETE RESTRICT,
+    measured_at TIMESTAMPTZ NOT NULL,
+    measured_date DATE NOT NULL,
+    source_type TEXT,
+    source_quality TEXT NOT NULL CHECK (source_quality IN ('measured_direct', 'self_reported', 'imported_record')),
+    context_time_of_day TEXT NOT NULL CHECK (context_time_of_day IN ('morning', 'unknown', 'other')),
+    fasting_state BOOLEAN,
+    before_training BOOLEAN,
+    notes TEXT,
+    raw_payload JSONB NOT NULL,
+    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+CREATE TABLE IF NOT EXISTS raw.body_measurement_values (
+    measurement_value_id TEXT PRIMARY KEY,
+    measurement_session_id TEXT NOT NULL REFERENCES raw.body_measurement_sessions (measurement_session_id) ON DELETE CASCADE,
+    measurement_type_canonical TEXT NOT NULL REFERENCES raw.measurement_type_dictionary (measurement_type_canonical) ON DELETE RESTRICT,
+    measurement_type_raw TEXT NOT NULL,
+    value_numeric NUMERIC(10, 2) NOT NULL,
+    unit TEXT NOT NULL,
+    side_or_scope TEXT,
+    raw_value TEXT,
+    parse_note TEXT,
+    notes TEXT,
+    order_in_session INTEGER NOT NULL,
+    raw_payload JSONB NOT NULL,
+    loaded_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+    UNIQUE (measurement_session_id, order_in_session)
+);
