@@ -109,6 +109,7 @@ def test_workout_detail_endpoint_returns_full_nested_structure(monkeypatch) -> N
     response = client.get("/api/workouts/2026-03-08")
 
     assert response.status_code == 200
+    assert response.headers["content-type"].startswith("application/json; charset=utf-8")
     payload = response.json()
     assert payload["workout_id"] == "2026-03-08"
     assert payload["source_quality"] == "raw_detailed"
