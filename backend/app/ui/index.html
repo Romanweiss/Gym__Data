@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gym__Data Workspace</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="brand-kicker">Gym__Data</p>
+          <h1>Progress Workspace</h1>
+          <p class="brand-note">
+            Minimal profile-centric control panel for workouts and body progress.
+          </p>
+        </div>
+        <nav class="nav">
+          <button class="nav-link active" data-view="overview">Overview</button>
+          <button class="nav-link" data-view="measurements">Measurements</button>
+          <button class="nav-link" data-view="progress">Progress</button>
+        </nav>
+        <div class="sidebar-foot">
+          <div id="workspace-status" class="status-card">Loading profile workspace...</div>
+        </div>
+      </aside>
+
+      <main class="content">
+        <section class="view active" data-view="overview">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">Current profile</p>
+              <h2>Overview</h2>
+            </div>
+            <div id="overdue-pill" class="pill neutral">Checking measurement cadence...</div>
+          </div>
+
+          <div id="overview-cards" class="grid cards-grid"></div>
+
+          <div class="grid dual-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Recent Workouts</h3>
+              </div>
+              <div id="recent-workouts" class="list-stack"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Recent Measurements</h3>
+              </div>
+              <div id="recent-measurements" class="list-stack"></div>
+            </div>
+          </div>
+
+          <div class="grid dual-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Weekly Load Snapshot</h3>
+              </div>
+              <div id="weekly-load-snapshot" class="detail-card"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Progress Highlights</h3>
+              </div>
+              <div id="progress-highlights" class="grid mini-cards"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="measurements">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">Measurements domain</p>
+              <h2>Measurement Sessions</h2>
+            </div>
+          </div>
+
+          <div class="grid measurements-grid">
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Sessions</h3>
+              </div>
+              <div id="measurement-session-list" class="list-stack"></div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <h3>Session Detail</h3>
+              </div>
+              <div id="measurement-session-detail" class="detail-card empty-state">
+                Choose a measurement session to see detail.
+              </div>
+            </div>
+
+            <div class="panel">
+              <div class="panel-head">
+                <h3>New Measurement Session</h3>
+              </div>
+              <form id="measurement-form" class="measurement-form">
+                <label>
+                  Measured at
+                  <input id="measured-at" name="measured_at" type="datetime-local" required />
+                </label>
+
+                <div class="form-row">
+                  <label>
+                    Time of day
+                    <select id="context-time-of-day" name="context_time_of_day">
+                      <option value="morning">Morning</option>
+                      <option value="unknown">Unknown</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </label>
+                  <label class="checkbox">
+                    <input id="fasting-state" name="fasting_state" type="checkbox" checked />
+                    <span>Fasting</span>
+                  </label>
+                  <label class="checkbox">
+                    <input id="before-training" name="before_training" type="checkbox" checked />
+                    <span>Before training</span>
+                  </label>
+                </div>
+
+                <label>
+                  Notes
+                  <textarea id="measurement-notes" name="notes" rows="3"></textarea>
+                </label>
+
+                <div id="measurement-inputs" class="measurement-inputs"></div>
+
+                <div class="form-actions">
+                  <button type="submit" class="primary-button">Save session</button>
+                  <p id="measurement-form-message" class="form-message"></p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" data-view="progress">
+          <div class="page-head">
+            <div>
+              <p class="eyebrow">Body progress</p>
+              <h2>Progress Charts</h2>
+            </div>
+            <label class="inline-select">
+              <span>Custom series</span>
+              <select id="custom-measurement-select"></select>
+            </label>
+          </div>
+
+          <div id="progress-charts" class="grid chart-grid"></div>
+
+          <div class="panel">
+            <div class="panel-head">
+              <h3>Unified Timeline</h3>
+            </div>
+            <div id="profile-timeline" class="list-stack timeline-stack"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </body>
+  </html>

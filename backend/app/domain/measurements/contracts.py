@@ -23,4 +23,4 @@ class MeasurementCadencePolicy:
 @dataclass(frozen=True)
 class MeasurementPhotoRef:
     photo_workflow_enabled: bool = False
-    storage_mode: str = "not_implemented_stage_1_2"
+    storage_mode: str = "not_implemented_foundation"

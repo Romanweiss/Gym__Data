@@ -5,6 +5,64 @@ from fastapi.testclient import TestClient
 from app.main import create_app
 
 
+def _sample_measurement_mutation_response(status: str) -> dict[str, object]:
+    return {
+        "status": status,
+        "measurement_session": {
+            "measurement_session_id": "2026-03-27_morning",
+            "subject_profile": {
+                "subject_profile_id": "subject_default",
+                "profile_kind": "person_placeholder",
+                "display_name": "Default single-user profile",
+                "is_default": True,
+            },
+            "measured_at": "2026-03-27T08:00:00",
+            "measured_date": "2026-03-27",
+            "source_type": "manual_entry",
+            "source_quality": "measured_direct",
+            "context_time_of_day": "morning",
+            "fasting_state": True,
+            "before_training": True,
+            "notes": "Fresh API write",
+            "measurements": [
+                {
+                    "measurement_value_id": "2026-03-27_morning_mv_01",
+                    "measurement_type_canonical": "waist",
+                    "measurement_type_raw": "waist",
+                    "value_numeric": 92.1,
+                    "unit": "cm",
+                    "side_or_scope": None,
+                    "raw_value": None,
+                    "parse_note": None,
+                    "notes": None,
+                    "order_in_session": 1,
+                    "category": "core",
+                    "value_kind": "circumference",
+                    "sort_order": 4,
+                }
+            ],
+        },
+        "refresh": {
+            "run_id": "00000000-0000-0000-0000-000000000001",
+            "source_file_count": 5,
+            "postgres_counts": {
+                "subject_profiles": 1,
+                "body_measurement_sessions": 5,
+                "body_measurement_values": 41,
+                "measurement_type_dictionary": 10,
+                "source_files": 5,
+            },
+            "clickhouse_counts": {
+                "mart_measurement_progress": 41,
+                "mart_measurement_deltas": 41,
+                "mart_measurement_latest": 10,
+                "mart_measurement_overdue": 1,
+                "mart_measurement_vs_workout_activity": 5,
+            },
+        },
+    }
+
+
 class FakeMeasurementPostgresClient:
     def fetch_one(self, query: str, params=None):
         if "FROM raw.body_measurement_sessions s" in query and "WHERE s.measurement_session_id" in query:
@@ -240,3 +298,90 @@ def test_measurements_overdue_endpoint_returns_recommendation(monkeypatch) -> No
     assert payload["last_measurement_session_id"] == "2026-03-01_morning"
     assert payload["workouts_since_last_measurement"] == 8
     assert payload["recommended_now"] is True
+
+
+def test_measurements_post_endpoint_returns_created_session(monkeypatch) -> None:
+    from app.api.routes import measurements as measurements_route
+
+    monkeypatch.setattr(
+        measurements_route,
+        "create_measurement_session",
+        lambda request: _sample_measurement_mutation_response("created"),
+    )
+
+    app = create_app()
+    client = TestClient(app)
+
+    response = client.post(
+        "/api/measurements/",
+        json={
+            "measured_at": "2026-03-27T08:00:00",
+            "measured_date": "2026-03-27",
+            "context_time_of_day": "morning",
+            "fasting_state": True,
+            "before_training": True,
+            "measurements": [
+                {"measurement_type": "waist", "value_numeric": 92.1, "unit": "cm"}
+            ],
+        },
+    )
+
+    assert response.status_code == 201
+    payload = response.json()
+    assert payload["status"] == "created"
+    assert payload["measurement_session"]["measurement_session_id"] == "2026-03-27_morning"
+    assert payload["refresh"]["source_file_count"] == 5
+
+
+def test_measurements_patch_endpoint_returns_updated_session(monkeypatch) -> None:
+    from app.api.routes import measurements as measurements_route
+
+    monkeypatch.setattr(
+        measurements_route,
+        "update_measurement_session",
+        lambda measurement_session_id, request: _sample_measurement_mutation_response(
+            "updated"
+        ),
+    )
+
+    app = create_app()
+    client = TestClient(app)
+
+    response = client.patch(
+        "/api/measurements/2026-03-27_morning",
+        json={
+            "measured_at": "2026-03-27T08:00:00",
+            "measured_date": "2026-03-27",
+            "context_time_of_day": "morning",
+            "fasting_state": True,
+            "before_training": False,
+            "measurements": [
+                {"measurement_type": "waist", "value_numeric": 91.8, "unit": "cm"}
+            ],
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["status"] == "updated"
+    assert payload["measurement_session"]["measurement_session_id"] == "2026-03-27_morning"
+
+
+def test_measurements_write_validation_error_is_readable() -> None:
+    app = create_app()
+    client = TestClient(app)
+
+    response = client.post(
+        "/api/measurements/",
+        json={
+            "measured_at": "2026-03-27T08:00:00",
+            "measured_date": "2026-03-28",
+            "context_time_of_day": "morning",
+            "measurements": [
+                {"measurement_type": "waist", "value_numeric": 92.1, "unit": "cm"}
+            ],
+        },
+    )
+
+    assert response.status_code == 422
+    assert "measured_date" in response.text

@@ -70,3 +70,16 @@ def test_missing_unit_defaults_from_measurement_type_dictionary() -> None:
 
     assert row["unit"] == "kg"
     assert row["parse_note"] == UNIT_DEFAULTED_PARSE_NOTE
+
+
+def test_matching_measured_date_is_accepted_when_present() -> None:
+    documents = read_source_documents(MEASUREMENT_SOURCE_DIR)
+    documents[0].payload["measured_date"] = "2026-01-10"
+
+    dataset = build_flattened_measurement_dataset(
+        documents,
+        MEASUREMENT_TYPE_DICTIONARY_PATH,
+        "subject_default",
+    )
+
+    assert dataset.body_measurement_sessions[0]["measured_date"].isoformat() == "2026-01-10"

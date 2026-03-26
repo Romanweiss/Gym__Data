@@ -45,8 +45,8 @@ services:
 
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: backend/Dockerfile
     environment:
       GYM_DATA_APP_NAME: Gym__Data Backend
       GYM_DATA_POSTGRES_DSN: postgresql://${POSTGRES_USER:-gym_data}:${POSTGRES_PASSWORD:-gym_data}@postgres:5432/${POSTGRES_DB:-gym_data}
@@ -58,6 +58,13 @@ services:
       GYM_DATA_DEFAULT_PAGE_SIZE: 50
       GYM_DATA_DEFAULT_SUBJECT_PROFILE_ID: ${DEFAULT_SUBJECT_PROFILE_ID:-subject_default}
       GYM_DATA_MEASUREMENT_RECOMMENDATION_CADENCE_DAYS: ${MEASUREMENT_RECOMMENDATION_CADENCE_DAYS:-21}
+      GYM_DATA_WORKOUT_SOURCE_DIR: /data/workouts/workouts
+      GYM_DATA_WORKOUT_SCHEMA_PATH: /data/workouts/schema/workout.schema.json
+      GYM_DATA_EXERCISE_DICTIONARY_PATH: /data/workouts/flat/exercise_dictionary.jsonl
+      GYM_DATA_MEASUREMENT_SOURCE_DIR: /data/measurements/measurements
+      GYM_DATA_MEASUREMENT_FLAT_DIR: /data/measurements/flat
+      GYM_DATA_MEASUREMENT_SCHEMA_PATH: /data/measurements/schema/measurement_session.schema.json
+      GYM_DATA_MEASUREMENT_TYPE_DICTIONARY_PATH: /data/measurements/flat/measurement_type_dictionary.jsonl
     depends_on:
       postgres:
         condition: service_healthy
@@ -65,6 +72,9 @@ services:
         condition: service_healthy
     ports:
       - "${BACKEND_HOST_PORT:-18080}:8000"
+    volumes:
+      - ./workouts:/data/workouts:ro
+      - ./measurements:/data/measurements
     healthcheck:
       test:
         [

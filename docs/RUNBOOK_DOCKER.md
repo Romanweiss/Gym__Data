@@ -101,10 +101,16 @@ Core endpoints:
 - cardio analytics: `http://localhost:18080/api/analytics/cardio`
 - recovery analytics: `http://localhost:18080/api/analytics/recovery`
 - measurement sessions: `http://localhost:18080/api/measurements/`
+- create measurement session: `POST http://localhost:18080/api/measurements/`
+- update measurement session: `PATCH http://localhost:18080/api/measurements/{measurement_session_id}`
 - measurement detail: `http://localhost:18080/api/measurements/{measurement_session_id}`
 - latest measurements: `http://localhost:18080/api/measurements/latest`
 - measurement progress: `http://localhost:18080/api/measurements/progress?measurement_type=waist`
 - measurement overdue status: `http://localhost:18080/api/measurements/overdue`
+- profile overview: `http://localhost:18080/api/profile/current/overview`
+- profile timeline: `http://localhost:18080/api/profile/current/timeline`
+- profile progress highlights: `http://localhost:18080/api/profile/current/progress-highlights`
+- embedded UI: `http://localhost:18080/ui/`
 - overall summary: `http://localhost:18080/api/summary/`
 
 Example:
@@ -112,6 +118,32 @@ Example:
 ```powershell
 Invoke-RestMethod http://localhost:18080/api/workouts/2026-03-08
 Invoke-RestMethod http://localhost:18080/api/measurements/2026-03-01_morning
+Invoke-RestMethod http://localhost:18080/api/profile/current/overview
+Start-Process http://localhost:18080/ui/
+```
+
+Create a new measurement session:
+
+```powershell
+$payload = @{
+    measured_at = "2026-03-27T08:00:00"
+    measured_date = "2026-03-27"
+    context_time_of_day = "morning"
+    fasting_state = $true
+    before_training = $true
+    notes = "Stage 1.3 API write example"
+    measurements = @(
+        @{ measurement_type = "body_weight"; value_numeric = 92.4; unit = "kg" }
+        @{ measurement_type = "waist"; value_numeric = 92.0; unit = "cm" }
+        @{ measurement_type = "chest"; value_numeric = 108.8; unit = "cm" }
+    )
+} | ConvertTo-Json -Depth 4
+
+Invoke-RestMethod `
+    -Method Post `
+    -Uri http://localhost:18080/api/measurements/ `
+    -ContentType "application/json" `
+    -Body $payload
 ```
 
 ## 8. Smoke check
@@ -169,6 +201,7 @@ docker compose down -v
 ## 10. Troubleshooting notes
 
 - if ports are busy, change `.env` first instead of editing compose defaults directly
-- if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.2 mart tables/views with `CREATE ... IF NOT EXISTS`
+- if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.3 mart tables/views with `CREATE ... IF NOT EXISTS`
 - if reconciliation fails, inspect the report before reloading; do not assume the flat layer or RAW layer is correct
 - `MEASUREMENT_RECOMMENDATION_CADENCE_DAYS` and `DEFAULT_SUBJECT_PROFILE_ID` can be overridden in `.env` without changing code
+- the embedded UI is served by the backend service, so there is no separate frontend container or host port in stage 1.3

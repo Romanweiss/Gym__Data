@@ -14,6 +14,10 @@ Exception:
 - `workouts/flat/exercise_dictionary.jsonl` is used as curated enrichment for aliases and muscle metadata that is not fully present in the nested workout source files
 - `measurements/flat/measurement_type_dictionary.jsonl` is used as curated enrichment for canonical measurement aliases, units, and categories
 
+Stage 1.3 note:
+
+- write API for measurements preserves this contract by writing back to `measurements/measurements/*.json`, regenerating `measurements/flat/*.jsonl`, and then refreshing RAW and MART layers
+
 ## Current dataset snapshot
 
 Based on the current repository dataset:
@@ -183,7 +187,7 @@ Purpose:
 
 - one row per measurement value inside a session
 - keeps canonical type, raw type, numeric value, unit, notes, parse note, and optional side/scope
-- supports body weight without inventing extra body composition metrics
+- supports `body_weight` as a regular measurement type without inventing extra body composition metrics
 
 ## Derived analytical layer
 
@@ -322,6 +326,7 @@ Analytical bridge between measurements and workout history with:
 - `body_weight` is a first-class measurement type, not a special side channel
 - no body composition metrics are invented beyond the actual recorded data
 - default measurement cadence is configurable and documented, not treated as medical truth
+- `body_weight` remains a canonical row in `raw.body_measurement_values` and must not be split into a separate raw subsystem at this stage
 
 ## Detail API contract
 
@@ -351,6 +356,62 @@ This endpoint is intended to be UI/mobile-friendly without making ClickHouse the
 - PostgreSQL for source-oriented detail and recommendation context
 - ClickHouse for latest/progress analytical views
 
+## Measurement write API contract
+
+`POST /api/measurements/` and `PATCH /api/measurements/{measurement_session_id}` accept:
+
+- `measurement_session_id` as optional body field on create and optional matching field on patch
+- `subject_profile_id` as optional future-ready profile anchor
+- `measured_at`
+- `measured_date`
+- `notes`
+- `context_time_of_day`
+- `fasting_state`
+- `before_training`
+- `measurements[]`
+
+Each `measurements[]` item supports:
+
+- `measurement_type`
+- `value_numeric`
+- `unit`
+- `side_or_scope`
+- `raw_value`
+- `notes`
+
+Write-path rules:
+
+- canonical normalization is still performed through the measurement type dictionary
+- `body_weight` uses the same contract as `waist`, `chest`, or any other measurement type
+- duplicate measurement types within the same session are rejected unless differentiated by future-safe attributes such as `side_or_scope`
+- unit mismatches are rejected instead of silently converted
+- successful writes refresh the measurement source JSON, flat layer, PostgreSQL RAW, and ClickHouse MARTs in one operational flow
+
+## Profile-centric read model contract
+
+`GET /api/profile/current/overview` returns:
+
+- current subject profile placeholder
+- latest workout and latest measurement session
+- latest measurements by canonical type
+- measurement overdue status
+- weekly workout-load snapshot
+- cardio summary
+- recovery summary
+- recent workouts and recent measurements
+
+`GET /api/profile/current/timeline` returns a combined chronological feed of:
+
+- workouts
+- measurement sessions
+
+`GET /api/profile/current/progress-highlights` returns:
+
+- highlighted latest measurements for `body_weight`, `waist`, `chest`, and `biceps`
+- delta vs previous where available
+- recent workout context
+- current overdue status
+
 ## Reconciliation contract
 
 The reconciliation flow compares:
@@ -379,7 +440,7 @@ Serious mismatches return non-zero exit status.
 
 ## Loading strategy
 
-Stage 1.2 still uses deterministic full refresh:
+Stage 1.3 still uses deterministic full refresh:
 
 1. validate source JSON schema
 2. validate data-contract rules
@@ -388,5 +449,14 @@ Stage 1.2 still uses deterministic full refresh:
 5. rebuild ClickHouse MART tables
 6. record the ingestion run
 7. optionally reconcile source, flat, and RAW layers for both domains
+
+The measurement write API follows the same foundation with a write-through variant:
+
+1. validate API payload
+2. persist the updated measurement session into `measurements/measurements/*.json`
+3. regenerate `measurements/flat/*.jsonl`
+4. reload measurement RAW tables in PostgreSQL
+5. refresh measurement marts in ClickHouse
+6. read the updated session back from RAW for the API response
 
 This keeps the foundation simple, auditable, and safe to extend later.

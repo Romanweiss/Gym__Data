@@ -1,8 +1,8 @@
 # PROJECT OVERVIEW
 
-## Goal of stage 1.2
+## Goal of stage 1.3
 
-`Gym__Data` stage 1.2 keeps the Stage 1.1 workout foundation intact and adds a first-class body progress domain that is already useful in single-user mode and ready for future client/trainer/club expansion.
+`Gym__Data` stage 1.3 keeps the workout and measurements foundations intact and adds the first profile-centric progress workspace layer: write path for measurements, profile-oriented read models, and a minimal UI/control panel that is already useful in single-user mode and ready for future client/trainer/club expansion.
 
 Current scope:
 
@@ -11,15 +11,16 @@ Current scope:
 - ingestion of real `measurements/measurements/*.json`
 - PostgreSQL RAW layer
 - ClickHouse MART layer
-- FastAPI read API
+- FastAPI read and write API
+- minimal embedded UI/control panel
 - reconciliation between source, derived flat, and RAW for both domains
 - tests, smoke checks, and extension-point documentation
 
 Out of scope for this stage:
 
-- full frontend
 - mobile app
 - full auth/session implementation
+- clubs/trainers/clients product logic
 - billing engine
 - realtime transport layer
 
@@ -42,6 +43,19 @@ measurements/measurements/*.json
   -> ClickHouse gym_data_mart.mart_measurement_*
   -> FastAPI /api/measurements/*
 
+POST/PATCH /api/measurements/*
+  -> request validation
+  -> source JSON write-through
+  -> measurements/flat/*.jsonl regeneration
+  -> PostgreSQL raw.* measurement refresh
+  -> ClickHouse mart_measurement_* refresh
+  -> read-back detail response
+
+FastAPI /api/profile/current/*
+  -> PostgreSQL RAW detail + timeline reads
+  -> ClickHouse MART analytical snapshots
+  -> embedded UI /ui/
+
 workouts/flat/*.jsonl
   -> derived reference layer
   -> reconciliation target
@@ -58,9 +72,10 @@ measurements/flat/*.jsonl
 - PostgreSQL stores source-shaped facts close to the original workout structure.
 - ClickHouse stores analytical rollups and progress views without polluting RAW with derived metrics.
 - Measurements stay separate from workouts in RAW, but analytical bridges connect them in MART where that is grounded in real facts.
+- `body_weight` remains inside the unified measurements contract as a normal canonical measurement type instead of a separate raw subsystem.
 - The backend reads PostgreSQL for workout and measurement detail, and ClickHouse for progress/load analytics.
 
-## Stage 1.2 additions
+## Stage 1.3 additions
 
 - `GET /api/workouts/{workout_id}` returns a stable nested workout detail payload from RAW.
 - `GET /api/workouts/{workout_id}/summary` returns per-workout analytical rollup from ClickHouse.
@@ -73,6 +88,12 @@ measurements/flat/*.jsonl
 - `GET /api/measurements/latest` returns the latest known value per canonical measurement type.
 - `GET /api/measurements/progress` returns a timeline with deltas and training-activity bridge metrics.
 - `GET /api/measurements/overdue` returns cadence-aware recommendation status.
+- `POST /api/measurements/` creates a measurement session through the same source-oriented operational flow used by ingestion.
+- `PATCH /api/measurements/{measurement_session_id}` updates a source measurement session and refreshes the derived layers.
+- `GET /api/profile/current/overview` returns a unified profile snapshot across workouts and measurements.
+- `GET /api/profile/current/timeline` returns a combined chronological feed of workouts and measurement sessions.
+- `GET /api/profile/current/progress-highlights` returns current body-progress highlights plus recent workout context.
+- `/ui/` serves a minimal control panel with overview, measurement history, creation form, and progress charts.
 - reconciliation CLI compares source JSON, derived `flat/*.jsonl`, and PostgreSQL RAW tables
 - container-friendly tests cover ingestion, parsing contracts, detail API, reconciliation, measurement analytics, and overdue logic
 
@@ -80,6 +101,7 @@ measurements/flat/*.jsonl
 
 - `compose.yaml`: runtime orchestration with safe host-port defaults
 - `backend/`: FastAPI API service
+- `backend/app/ui/`: embedded MVP control panel
 - `ingestion/`: validation, flattening, load, and reconciliation logic
 - `measurements/`: source-of-truth measurement files, schema, and flat reference layer
 - `sql/postgres/init/`: deterministic PostgreSQL bootstrap
@@ -128,6 +150,6 @@ The codebase now keeps lightweight contracts for:
 - future measurement photo references and cadence-policy contracts
 - future bounded contexts in the package structure
 
-Stage 1.2 introduces `raw.subject_profiles` as a minimal, auth-free placeholder so body progress can belong to a future person/client profile without hardcoding the whole system into permanent single-user mode.
+The measurements foundation introduces `raw.subject_profiles` as a minimal, auth-free placeholder so body progress can belong to a future person/client profile without hardcoding the whole system into permanent single-user mode.
 
 This keeps future auth, client, trainer, and club expansion additive instead of forcing a rewrite of the current data core.

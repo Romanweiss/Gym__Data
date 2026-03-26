@@ -20,7 +20,7 @@
 ## Engineering rules
 
 - canonical measurement type is resolved from `measurement_type_raw` through the measurement type dictionary
-- units are stored explicitly; stage 1.2 supports canonical units only and does not do automatic unit conversion
+- units are stored explicitly; the current foundation supports canonical units only and does not do automatic unit conversion
 - default recommendation cadence is 21 days and is configurable via environment
 - measurement guidance is documented, but the system does not invent body composition metrics
 - current stage assumes a default single-user subject profile while keeping future client/profile linkage explicit

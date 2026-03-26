@@ -4,13 +4,17 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1
 
+WORKDIR /srv
+
+COPY backend/pyproject.toml ./backend/pyproject.toml
+COPY backend/app ./backend/app
+COPY backend/tests ./backend/tests
+COPY ingestion/pyproject.toml ./ingestion/pyproject.toml
+COPY ingestion/gym_data_ingestion ./ingestion/gym_data_ingestion
+
+RUN pip install --upgrade pip && pip install "./ingestion" "./backend[test]"
+
 WORKDIR /srv/backend
-
-COPY pyproject.toml ./
-COPY app ./app
-COPY tests ./tests
-
-RUN pip install --upgrade pip && pip install ".[test]"
 
 EXPOSE 8000
 

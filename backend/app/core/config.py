@@ -1,4 +1,5 @@
 from functools import lru_cache
+from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -16,6 +17,13 @@ class Settings(BaseSettings):
     default_page_size: int = 50
     default_subject_profile_id: str = "subject_default"
     measurement_recommendation_cadence_days: int = 21
+    workout_source_dir: Path = Path("/data/workouts/workouts")
+    workout_schema_path: Path = Path("/data/workouts/schema/workout.schema.json")
+    exercise_dictionary_path: Path = Path("/data/workouts/flat/exercise_dictionary.jsonl")
+    measurement_source_dir: Path = Path("/data/measurements/measurements")
+    measurement_flat_dir: Path = Path("/data/measurements/flat")
+    measurement_schema_path: Path = Path("/data/measurements/schema/measurement_session.schema.json")
+    measurement_type_dictionary_path: Path = Path("/data/measurements/flat/measurement_type_dictionary.jsonl")
 
 
 @lru_cache

@@ -40,13 +40,23 @@ Body progress foundation completed in this step:
 
 ## Stage 1.3
 
-Logical next hardening step:
+Profile-centric progress workspace completed in this step:
 
 - `POST /api/measurements/` write path with safe validation and id generation
-- richer filters and pagination helpers for workouts, exercises, and measurements
+- `PATCH /api/measurements/{measurement_session_id}` for source-oriented updates
+- unified profile overview, timeline, and progress highlights endpoints
+- embedded MVP control panel for overview, measurements, and progress charts
+- body-progress write/read contracts that keep `body_weight` inside the unified measurements domain
+- backend and ingestion tests covering write flow, profile endpoints, and UI shell availability
+
+## Stage 1.4
+
+Logical next hardening step:
+
 - CI wiring for backend tests, ingestion tests, reconciliation, and smoke checks
 - operational status endpoints and ingestion-run visibility
-- mart-level regression checks against future dataset growth
+- safe delete/archive strategy for mutable measurement sessions
+- richer filters and pagination helpers for workouts, exercises, measurements, and profile timeline
 - first optional reminders/notification contracts without implementing the delivery engine
 
 ## Stage 2

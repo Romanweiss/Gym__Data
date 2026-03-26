@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import json
 from dataclasses import dataclass, field
-from datetime import datetime
+from datetime import date, datetime
 from decimal import Decimal
 from pathlib import Path
 from typing import Any
@@ -62,6 +62,11 @@ def build_flattened_measurement_dataset(
             subject_profiles[subject_profile_id] = _derived_subject_profile(subject_profile_id)
 
         measured_at = datetime.fromisoformat(str(payload["measured_at"]))
+        measured_date = _resolve_measured_date(
+            measurement_session_id=measurement_session_id,
+            measured_at=measured_at,
+            measured_date_raw=payload.get("measured_date"),
+        )
         source_quality = _validated_source_quality(str(payload["source_quality"]))
         context_time_of_day = _validated_context_time_of_day(
             str(payload["context_time_of_day"])
@@ -77,7 +82,7 @@ def build_flattened_measurement_dataset(
                 "measurement_session_id": measurement_session_id,
                 "subject_profile_id": subject_profile_id,
                 "measured_at": measured_at,
-                "measured_date": measured_at.date(),
+                "measured_date": measured_date,
                 "source_type": payload.get("source_type"),
                 "source_quality": source_quality,
                 "context_time_of_day": context_time_of_day,
@@ -240,9 +245,9 @@ def _default_subject_profile(default_subject_profile_id: str) -> Record:
         "profile_kind": "person_placeholder",
         "display_name": "Default single-user profile",
         "is_default": True,
-        "notes": "Stage 1.2 placeholder profile for single-user mode.",
+        "notes": "Placeholder profile for single-user mode.",
         "source_payload": {
-            "source": "stage_1_2_default",
+            "source": "single_user_default",
             "future_migration_target": "client_or_user_profile",
         },
     }
@@ -273,6 +278,23 @@ def _validated_context_time_of_day(context_time_of_day: str) -> str:
             f"Unsupported context_time_of_day: {context_time_of_day}"
         )
     return context_time_of_day
+
+
+def _resolve_measured_date(
+    measurement_session_id: str,
+    measured_at: datetime,
+    measured_date_raw: Any,
+) -> date:
+    derived_measured_date = measured_at.date()
+    if measured_date_raw in (None, ""):
+        return derived_measured_date
+
+    measured_date = date.fromisoformat(str(measured_date_raw))
+    if measured_date != derived_measured_date:
+        raise DatasetValidationError(
+            f"Measurement session {measurement_session_id} measured_date must match measured_at date."
+        )
+    return measured_date
 
 
 def _validate_dense_order_sequence(actual_orders: set[int], expected_owner: str) -> None:

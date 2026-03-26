@@ -23,6 +23,12 @@
     "measured_at": {
       "type": "string"
     },
+    "measured_date": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
     "source_type": {
       "type": "string"
     },
