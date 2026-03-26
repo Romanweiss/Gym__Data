@@ -1,0 +1,100 @@
+{
+  "workout_id": "2026-02-01",
+  "date": "2026-02-01",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Бицепс",
+  "split_raw": [
+    "Грудь",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "chest",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Жимы гантелей в наклонной скамье, EZ-штанга на бицепс, кроссоверы, брусья без доп. веса, пресс; кардио до тренировки; сауна и контрастный душ.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Жимы гантелей в наклонной скамье",
+      "exercise_name_canonical": "жим гантелей в наклонной скамье",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "EZ-штанга на бицепс",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Кроссоверы",
+      "exercise_name_canonical": "кроссовер",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Брусья без доп. веса",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Пресс",
+      "exercise_name_canonical": "пресс",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

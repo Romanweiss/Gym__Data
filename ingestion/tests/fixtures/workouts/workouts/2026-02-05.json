@@ -1,0 +1,36 @@
+{
+  "workout_id": "2026-02-05",
+  "date": "2026-02-05",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Растяжка",
+  "split_raw": [
+    "Кардио",
+    "Растяжка"
+  ],
+  "split_normalized": [
+    "cardio",
+    "stretching"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Эллиптический тренажёр 60 мин (вперёд/назад), растяжка 15 мин; без силовой нагрузки.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 60,
+      "notes": "Итоговое время по summary-источнику."
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": 15,
+      "notes": null
+    }
+  ],
+  "exercises": []
+}

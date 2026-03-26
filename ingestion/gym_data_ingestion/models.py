@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from dataclasses import dataclass, field
 from datetime import date
 from decimal import Decimal
@@ -14,6 +15,8 @@ class DatasetValidationError(ValueError):
 
 
 Record = dict[str, Any]
+SOURCE_QUALITY_VALUES = {"raw_detailed", "partial_raw", "summary_only"}
+INCOMPLETE_REPS_PARSE_NOTE = "reps_missing_defaulted_to_1"
 
 
 @dataclass
@@ -65,11 +68,15 @@ def build_flattened_dataset(
     for document in documents:
         workout = document.payload
         workout_id = str(workout["workout_id"])
+        if document.file_path.stem != workout_id:
+            raise DatasetValidationError(
+                f"Workout file name {document.file_path.name} does not match workout_id {workout_id}."
+            )
         if workout_id in seen_workout_ids:
             raise DatasetValidationError(f"Duplicate workout_id detected: {workout_id}")
         seen_workout_ids.add(workout_id)
 
-        source_quality = str(workout["source_quality"])
+        source_quality = _validated_source_quality(str(workout["source_quality"]))
         if source_quality == "summary_only" and any(exercise.get("sets") for exercise in workout["exercises"]):
             raise DatasetValidationError(
                 f"Workout {workout_id} is summary_only but contains set-level facts."
@@ -101,6 +108,7 @@ def build_flattened_dataset(
         )
 
         seen_exercise_orders: set[Decimal] = set()
+        exercise_orders_in_source: list[Decimal] = []
         for exercise_index, exercise in enumerate(workout.get("exercises", []), start=1):
             exercise_order = Decimal(str(exercise["order"]))
             if exercise_order in seen_exercise_orders:
@@ -108,6 +116,7 @@ def build_flattened_dataset(
                     f"Workout {workout_id} contains duplicate exercise order {exercise_order}."
                 )
             seen_exercise_orders.add(exercise_order)
+            exercise_orders_in_source.append(exercise_order)
 
             exercise_instance_id = f"{workout_id}_ex_{exercise_index:02d}"
             exercise_name_canonical = str(exercise["exercise_name_canonical"])
@@ -115,7 +124,17 @@ def build_flattened_dataset(
             category = str(exercise["category"])
             load_type = str(exercise["load_type"])
             bodyweight = bool(exercise["bodyweight"])
-            exercise_quality = str(exercise.get("source_quality") or workout["source_quality"])
+            exercise_quality = _validated_source_quality(
+                str(exercise.get("source_quality") or workout["source_quality"])
+            )
+            if source_quality == "summary_only" and exercise_quality != "summary_only":
+                raise DatasetValidationError(
+                    f"Workout {workout_id} is summary_only but exercise {exercise_name_raw} is {exercise_quality}."
+                )
+            if exercise_quality == "summary_only" and exercise.get("sets"):
+                raise DatasetValidationError(
+                    f"Exercise {exercise_instance_id} is summary_only but contains set-level facts."
+                )
 
             observed_aliases.setdefault(exercise_name_canonical, set()).add(exercise_name_raw)
             if exercise_name_canonical in observed_dictionary:
@@ -172,9 +191,18 @@ def build_flattened_dataset(
                     raise DatasetValidationError(
                         f"Bodyweight exercise {exercise_instance_id} must keep weight_kg=0."
                     )
-                if parse_note == "reps_missing_defaulted_to_1" and reps != 1:
+                if parse_note == INCOMPLETE_REPS_PARSE_NOTE and reps != 1:
                     raise DatasetValidationError(
                         f"Exercise {exercise_instance_id} set {set_order} lost reps default contract."
+                    )
+                if _is_incomplete_reps_notation(set_row.get("raw_value")):
+                    if reps != 1 or parse_note != INCOMPLETE_REPS_PARSE_NOTE:
+                        raise DatasetValidationError(
+                            f"Exercise {exercise_instance_id} set {set_order} must preserve incomplete reps contract."
+                        )
+                elif parse_note == INCOMPLETE_REPS_PARSE_NOTE:
+                    raise DatasetValidationError(
+                        f"Exercise {exercise_instance_id} set {set_order} has parse_note without incomplete notation."
                     )
 
                 dataset.sets.append(
@@ -190,7 +218,18 @@ def build_flattened_dataset(
                     }
                 )
 
+            _validate_dense_order_sequence(
+                actual_orders=seen_set_orders,
+                expected_owner=f"exercise {exercise_instance_id} sets",
+            )
+
+        _validate_monotonic_order_sequence(
+            actual_orders=exercise_orders_in_source,
+            expected_owner=f"workout {workout_id} exercises",
+        )
+
         seen_cardio_orders: set[int] = set()
+        cardio_orders_in_source: list[int] = []
         for cardio in workout.get("cardio_segments", []):
             segment_order = int(cardio["order"])
             if segment_order in seen_cardio_orders:
@@ -198,6 +237,7 @@ def build_flattened_dataset(
                     f"Workout {workout_id} contains duplicate cardio order {segment_order}."
                 )
             seen_cardio_orders.add(segment_order)
+            cardio_orders_in_source.append(segment_order)
             dataset.cardio_segments.append(
                 {
                     "workout_id": workout_id,
@@ -209,8 +249,13 @@ def build_flattened_dataset(
                     "raw_payload": cardio,
                 }
             )
+        _validate_monotonic_order_sequence(
+            actual_orders=cardio_orders_in_source,
+            expected_owner=f"workout {workout_id} cardio segments",
+        )
 
         seen_recovery_orders: set[int] = set()
+        recovery_orders_in_source: list[int] = []
         for recovery in workout.get("recovery_events", []):
             event_order = int(recovery["order"])
             if event_order in seen_recovery_orders:
@@ -218,6 +263,7 @@ def build_flattened_dataset(
                     f"Workout {workout_id} contains duplicate recovery order {event_order}."
                 )
             seen_recovery_orders.add(event_order)
+            recovery_orders_in_source.append(event_order)
             dataset.recovery_events.append(
                 {
                     "workout_id": workout_id,
@@ -228,6 +274,10 @@ def build_flattened_dataset(
                     "raw_payload": recovery,
                 }
             )
+        _validate_monotonic_order_sequence(
+            actual_orders=recovery_orders_in_source,
+            expected_owner=f"workout {workout_id} recovery events",
+        )
 
     curated_dictionary = _load_dictionary_file(exercise_dictionary_path)
     dataset.exercise_dictionary = _merge_dictionary_rows(
@@ -292,3 +342,33 @@ def _merge_dictionary_rows(
         merged_rows.append(row)
 
     return merged_rows
+
+
+def _validated_source_quality(source_quality: str) -> str:
+    if source_quality not in SOURCE_QUALITY_VALUES:
+        raise DatasetValidationError(f"Unsupported source_quality: {source_quality}")
+    return source_quality
+
+
+def _validate_dense_order_sequence(actual_orders: set[int], expected_owner: str) -> None:
+    if not actual_orders:
+        return
+    expected_orders = set(range(1, len(actual_orders) + 1))
+    if actual_orders != expected_orders:
+        raise DatasetValidationError(
+            f"{expected_owner} must be densely ordered from 1..n; got {sorted(actual_orders)}."
+        )
+
+
+def _validate_monotonic_order_sequence(actual_orders: list[int | Decimal], expected_owner: str) -> None:
+    if actual_orders != sorted(actual_orders):
+        raise DatasetValidationError(
+            f"{expected_owner} must preserve ascending source order; got {actual_orders}."
+        )
+
+
+def _is_incomplete_reps_notation(raw_value: str | None) -> bool:
+    if raw_value is None:
+        return False
+    value = str(raw_value).strip().lower()
+    return bool(re.fullmatch(r"\d+(?:[.,]\d+)?[xх]", value))

@@ -1,0 +1,160 @@
+{
+  "workout_id": "2026-03-23",
+  "date": "2026-03-23",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Спина, Бицепс",
+  "split_raw": [
+    "Ноги",
+    "Спина",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "legs",
+    "back",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "partial_raw",
+  "source_text": "23.03.2026 Ноги, Спина, Бицепс\n1. Кардио - эллиптический тренажёр вперёд 7 минут\n2. Кардио - эллиптический тренажёр назад 2 минуты\n3. Приседания со штангой 20х15, 20х17, 20х20, 60х10, 80х9, 100х7, 120х4, ...\nДоп. по сводке: подтягивания широким и обратным хватом, пресс, короткая растяжка в сауне, прохладный душ.",
+  "notes": "Высокострессовая осевая сессия по сводке.",
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 7,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 2,
+      "notes": null
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "stretching",
+      "duration_min": null,
+      "notes": "Короткая растяжка в сауне"
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 20,
+          "reps": 15,
+          "raw_value": "20х15",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 17,
+          "raw_value": "20х17",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 20,
+          "reps": 20,
+          "raw_value": "20х20",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 60,
+          "reps": 10,
+          "raw_value": "60х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 80,
+          "reps": 9,
+          "raw_value": "80х9",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 100,
+          "reps": 7,
+          "raw_value": "100х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 120,
+          "reps": 4,
+          "raw_value": "120х4",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "20х15, 20х17, 20х20, 60х10, 80х9, 100х7, 120х4",
+      "notes": "Исходная запись обрывается после 120х4; упражнение сохранено частично.",
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Подтягивания широким хватом",
+      "exercise_name_canonical": "подтягивания широким хватом",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Упоминание по сводке без подходов и повторений.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Подтягивания обратным хватом",
+      "exercise_name_canonical": "подтягивания обратным хватом",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Упоминание по сводке без подходов и повторений.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Пресс",
+      "exercise_name_canonical": "пресс",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Упоминание по сводке без детализации упражнения.",
+      "source_quality": "summary_only"
+    }
+  ]
+}

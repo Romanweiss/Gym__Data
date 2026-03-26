@@ -1,0 +1,76 @@
+{
+  "workout_id": "2026-02-15",
+  "date": "2026-02-15",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Плечи, Бицепс",
+  "split_raw": [
+    "Ноги",
+    "Плечи",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "legs",
+    "shoulders",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Присед со штангой до 130 кг (пиковый подход), далее плечи, бицепс и мёртвая тяга; высокострессовая осевая нагрузка.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Пиковый подход до 130 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Плечи",
+      "exercise_name_canonical": "жим штанги сидя",
+      "category": "strength",
+      "load_type": "barbell_or_kettlebell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Бицепс",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Мёртвая тяга",
+      "exercise_name_canonical": "становая тяга",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

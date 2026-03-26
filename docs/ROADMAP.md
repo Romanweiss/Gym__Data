@@ -2,48 +2,78 @@
 
 ## Stage 1
 
-Foundation delivered in this prompt:
+Foundation completed:
 
 - Dockerized PostgreSQL, ClickHouse, backend
 - deterministic SQL bootstrap
-- workout JSON ingestion with validation
-- PostgreSQL raw model
-- ClickHouse mart model
-- health and read endpoints
-- runbook and smoke checks
+- ingestion of real workout JSON
+- PostgreSQL RAW model
+- ClickHouse MART model
+- health and basic read endpoints
+- runbook, smoke checks, and project structure docs
+
+## Stage 1.1
+
+Hardening and analytics layer completed in this step:
+
+- workout detail endpoint from RAW
+- per-workout analytical summary endpoint
+- exercise progress endpoint
+- weekly/cardio/recovery analytics endpoints
+- reconciliation flow for source JSON vs flat JSONL vs PostgreSQL RAW
+- stronger ingestion contract validation
+- container-friendly tests for ingestion, reconciliation, and API detail
+- clearer auth-ready and multi-tenant-ready extension points
+
+## Stage 1.2
+
+Logical next hardening step:
+
+- detail endpoint filters and pagination helpers for future UI
+- richer query params for workouts and exercises
+- first metadata tables for clubs/users without enabling full auth flows
+- scheduled ingestion runner and operational status endpoints
+- CI wiring for tests plus reconciliation job
+- mart-level regression checks against future dataset growth
 
 ## Stage 2
 
-Short next-step candidates:
+Platform boundaries without breaking the current data core:
 
-- add workout detail endpoint and richer query filters
-- add ingestion reconciliation against derived `flat/*.jsonl`
-- add test suite for ingestion and API queries
-- introduce scheduled ingestion/job runner
-- add db-backed settings and basic admin observability
+- `clubs` for tenant boundaries
+- `identity` for auth, sessions, and role contracts
+- `trainers` and `clients` for actor ownership
+- `programs` for plans and assignments
+- `attendance` for check-ins and facility usage
+- `memberships` and `payments` for subscription/billing boundaries
 
 ## Stage 3
 
-Platform expansion without breaking the stage-1 core:
+Product-facing surfaces:
 
-- `clubs` for multi-tenant boundaries
-- `identity` for auth, sessions, and roles
-- `trainers` and `clients` for domain ownership
-- `programs` for coaching plans and assignments
-- `attendance` for check-ins and class/gym presence
-- `memberships` and `payments` for subscriptions and billing
+- admin/control panel
+- trainer workspace
+- client-facing application surfaces
+- mobile-ready API expansion
+- operational dashboards for workouts, attendance, and progress
 
 ## Stage 4
 
-Product-facing surfaces:
+Realtime and scale-oriented additions:
 
-- control panel / admin UI
-- trainer workspace
-- client-facing app surfaces
-- mobile API surface
-- near-real-time dashboards and progress feeds
+- event-driven ingestion increments
+- near-real-time progress/activity dashboards
+- alerting and data-quality monitoring
+- multi-club rollups and benchmark reporting
 
-## Architectural principle for future prompts
+## Architectural principle
 
-Keep source ingestion, raw storage, analytical marts, and product domains separately evolvable. New platform capabilities should extend the current foundation instead of folding everything into a single service or schema.
+Keep these layers independently evolvable:
 
+- source ingestion
+- RAW storage
+- analytical marts
+- API read models
+- future product domains
+
+Every new stage should extend the current foundation, not collapse it into a single monolith.

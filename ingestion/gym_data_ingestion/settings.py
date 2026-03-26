@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     clickhouse_password: str = "gym_data"
     workout_data_root: Path = Path("/data/workouts")
     workout_source_dir: Path = Path("/data/workouts/workouts")
+    workout_flat_dir: Path = Path("/data/workouts/flat")
     workout_schema_path: Path = Path("/data/workouts/schema/workout.schema.json")
     exercise_dictionary_path: Path = Path("/data/workouts/flat/exercise_dictionary.jsonl")
 
@@ -22,4 +23,3 @@ class Settings(BaseSettings):
 @lru_cache
 def get_settings() -> Settings:
     return Settings()
-

@@ -1,0 +1,45 @@
+{"workout_id": "2026-01-11_a", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 7, "notes": "Предварительное кардио по summary-источнику."}
+{"workout_id": "2026-01-11_b", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 41, "notes": "Эллипс по summary-источнику."}
+{"workout_id": "2026-01-13", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 30, "notes": "Суммарное кардио по summary-источнику."}
+{"workout_id": "2026-01-18", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 20, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-01-19", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 35, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-01-20", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 40, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-01-24", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 21, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-01-31", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 35, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-02-02", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 50, "notes": "В summary указано 50 мин вперёд/назад + повышенное усилие 10 мин."}
+{"workout_id": "2026-02-05", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 60, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-02-11", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 15, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-02-16", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 35, "notes": "Итоговое время по summary-источнику."}
+{"workout_id": "2026-02-24", "order": 1, "machine": "эллиптический тренажёр", "direction": "mixed", "duration_min": 40, "notes": "Длительное кардио по summary-источнику."}
+{"workout_id": "2026-03-05", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-05", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 5, "notes": null}
+{"workout_id": "2026-03-07", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 6, "notes": null}
+{"workout_id": "2026-03-07", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-08", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 6, "notes": null}
+{"workout_id": "2026-03-08", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-08", "order": 7, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 20, "notes": null}
+{"workout_id": "2026-03-08", "order": 8, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 5, "notes": null}
+{"workout_id": "2026-03-10", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 20, "notes": null}
+{"workout_id": "2026-03-10", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-10", "order": 4, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-10", "order": 5, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-11", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 6, "notes": null}
+{"workout_id": "2026-03-11", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-13", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 5, "notes": null}
+{"workout_id": "2026-03-13", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-14", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 6, "notes": null}
+{"workout_id": "2026-03-14", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-17", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 20, "notes": null}
+{"workout_id": "2026-03-17", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-17", "order": 3, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 20, "notes": null}
+{"workout_id": "2026-03-17", "order": 4, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-19", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 6, "notes": null}
+{"workout_id": "2026-03-19", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-23", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 7, "notes": null}
+{"workout_id": "2026-03-23", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}
+{"workout_id": "2026-03-25", "order": 1, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 20, "notes": null}
+{"workout_id": "2026-03-25", "order": 2, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 12, "notes": null}
+{"workout_id": "2026-03-25", "order": 3, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 15, "notes": null}
+{"workout_id": "2026-03-25", "order": 4, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-25", "order": 5, "machine": "эллиптический тренажёр", "direction": "forward", "duration_min": 10, "notes": null}
+{"workout_id": "2026-03-25", "order": 6, "machine": "эллиптический тренажёр", "direction": "backward", "duration_min": 2, "notes": null}

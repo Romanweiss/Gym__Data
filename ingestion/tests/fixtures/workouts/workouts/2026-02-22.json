@@ -1,0 +1,70 @@
+{
+  "workout_id": "2026-02-22",
+  "date": "2026-02-22",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Плечи, Растяжка",
+  "split_raw": [
+    "Ноги",
+    "Плечи",
+    "Растяжка"
+  ],
+  "split_normalized": [
+    "legs",
+    "shoulders",
+    "stretching"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Присед со штангой до 105 кг (без выхода на пиковые веса), далее плечи с гирями и лёгкая работа на суставы; пресс с роликом; завершение — растяжка 35 мин. Умеренно-силовая осевая нагрузка ниже пиковых значений февраля.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "stretching",
+      "duration_min": 35,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "До 105 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Плечи с гирями",
+      "exercise_name_canonical": "жим штанги сидя",
+      "category": "strength",
+      "load_type": "barbell_or_kettlebell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Скручивания с роликом",
+      "exercise_name_canonical": "скручивания с роликом",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "workout_id": "2026-02-07",
+  "date": "2026-02-07",
+  "session_sequence": 1,
+  "title_raw": "Грудь, Ноги",
+  "split_raw": [
+    "Грудь",
+    "Ноги"
+  ],
+  "split_normalized": [
+    "chest",
+    "legs"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Умеренно-силовая, акцент на тренажёры и гантели — жимы на грудь, брусья с акцентом на грудь, икры в тренажёрах, пресс; без осевой нагрузки.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Жимы на грудь",
+      "exercise_name_canonical": "жим гантелей в наклонной скамье",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Брусья акцент на грудь",
+      "exercise_name_canonical": "отжимания на брусьях",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {
+        "emphasis": "chest"
+      },
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Икры в тренажёрах",
+      "exercise_name_canonical": "подъёмы на икры сидя в тренажёре",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Пресс",
+      "exercise_name_canonical": "пресс",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

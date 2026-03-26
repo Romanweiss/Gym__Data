@@ -19,16 +19,16 @@ class ClickHouseClient:
             database=self._settings.clickhouse_database,
         )
 
-    def fetch_all(self, query: str) -> list[dict[str, Any]]:
+    def fetch_all(self, query: str, params: dict[str, Any] | None = None) -> list[dict[str, Any]]:
         client = self._get_client()
         try:
-            result = client.query(query)
+            result = client.query(query, parameters=params or {})
             return [dict(zip(result.column_names, row)) for row in result.result_rows]
         finally:
             client.close()
 
-    def fetch_one(self, query: str) -> dict[str, Any] | None:
-        rows = self.fetch_all(query)
+    def fetch_one(self, query: str, params: dict[str, Any] | None = None) -> dict[str, Any] | None:
+        rows = self.fetch_all(query, params=params)
         return rows[0] if rows else None
 
     def ping(self) -> bool:

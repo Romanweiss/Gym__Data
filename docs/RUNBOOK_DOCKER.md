@@ -37,28 +37,83 @@ docker compose up -d --build
 docker compose --profile jobs run --rm ingestion
 ```
 
-This validates `workouts/workouts/*.json`, loads PostgreSQL RAW tables, and rebuilds ClickHouse MART tables.
+This command:
 
-## 5. Basic API checks
+- validates `workouts/workouts/*.json`
+- applies data-contract checks
+- loads PostgreSQL RAW tables
+- rebuilds ClickHouse marts
+
+## 5. Reconcile source, flat, and RAW
+
+```powershell
+docker compose --profile jobs run --rm ingestion python -m gym_data_ingestion.cli.main reconcile
+```
+
+Expected behavior:
+
+- prints a text reconciliation report
+- exits with code `0` on pass
+- exits with non-zero code on serious mismatches
+
+## 6. Run automated tests
+
+Backend tests:
+
+```powershell
+docker compose run --rm --no-deps backend pytest
+```
+
+Ingestion tests:
+
+```powershell
+docker compose --profile jobs run --rm --no-deps ingestion python -m pytest
+```
+
+The ingestion tests use fixture copies of the real dataset bundled into the image, so they do not depend on host-mounted paths.
+
+## 7. API checks
+
+Core endpoints:
 
 - health: `http://localhost:18080/api/health/`
-- workouts: `http://localhost:18080/api/workouts/`
-- exercises: `http://localhost:18080/api/exercises/`
-- summary: `http://localhost:18080/api/summary/`
+- workouts list: `http://localhost:18080/api/workouts/`
+- workout detail: `http://localhost:18080/api/workouts/{workout_id}`
+- workout summary: `http://localhost:18080/api/workouts/{workout_id}/summary`
+- exercises list: `http://localhost:18080/api/exercises/`
+- exercise progress: `http://localhost:18080/api/exercises/{exercise_name_canonical}/progress`
+- weekly analytics: `http://localhost:18080/api/analytics/weekly-load`
+- cardio analytics: `http://localhost:18080/api/analytics/cardio`
+- recovery analytics: `http://localhost:18080/api/analytics/recovery`
+- overall summary: `http://localhost:18080/api/summary/`
 
-## 6. Smoke check
+Example:
+
+```powershell
+Invoke-RestMethod http://localhost:18080/api/workouts/2026-03-08
+```
+
+## 8. Smoke check
+
+API smoke only:
 
 ```powershell
 .\scripts\smoke_check.ps1
 ```
 
-Or bootstrap everything in one go:
+API smoke with reconciliation:
+
+```powershell
+.\scripts\smoke_check.ps1 -WithReconciliation
+```
+
+Bootstrap stack, load data, reconcile, and smoke-check:
 
 ```powershell
 .\scripts\smoke_check.ps1 -Bootstrap
 ```
 
-## 7. Useful Compose commands
+## 9. Useful Compose commands
 
 Show service status:
 
@@ -72,7 +127,7 @@ Tail backend logs:
 docker compose logs -f backend
 ```
 
-Tail ingestion logs from the last run:
+Run ingestion again:
 
 ```powershell
 docker compose --profile jobs run --rm ingestion
@@ -90,3 +145,8 @@ Reset containers and volumes:
 docker compose down -v
 ```
 
+## 10. Troubleshooting notes
+
+- if ports are busy, change `.env` first instead of editing compose defaults directly
+- if ClickHouse volume already exists from an older build, ingestion still ensures stage-1.1 mart tables/views with `CREATE ... IF NOT EXISTS`
+- if reconciliation fails, inspect the report before reloading; do not assume the flat layer or RAW layer is correct

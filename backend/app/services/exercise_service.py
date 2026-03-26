@@ -1,13 +1,13 @@
+from app.core.config import get_settings
+from app.db.clickhouse import get_clickhouse_client
 from app.db.postgres import get_postgres_client
-from app.services.serialization import normalize_records
-
+from app.services.serialization import normalize_record, normalize_records
 
 COUNT_QUERY_TEMPLATE = """
 SELECT COUNT(*)::int AS total
 FROM raw.exercise_dictionary
 {where_clause}
 """
-
 
 LIST_QUERY_TEMPLATE = """
 SELECT
@@ -37,6 +37,18 @@ LEFT JOIN (
 {where_clause}
 ORDER BY COALESCE(stats.workout_count, 0) DESC, d.exercise_name_canonical ASC
 LIMIT %(limit)s OFFSET %(offset)s
+"""
+
+EXERCISE_DIMENSION_QUERY = """
+SELECT
+    exercise_name_canonical,
+    aliases,
+    category,
+    load_type,
+    bodyweight_default,
+    primary_muscles
+FROM raw.exercise_dictionary
+WHERE exercise_name_canonical = %(exercise_name_canonical)s
 """
 
 
@@ -75,4 +87,97 @@ def list_exercises(limit: int, offset: int, category: str | None) -> dict[str, o
         "filters": {
             "category": category,
         },
+    }
+
+
+def get_exercise_progress(exercise_name_canonical: str) -> dict[str, object] | None:
+    postgres = get_postgres_client()
+    dimension = normalize_record(
+        postgres.fetch_one(
+            EXERCISE_DIMENSION_QUERY,
+            {"exercise_name_canonical": exercise_name_canonical},
+        )
+    )
+    if not dimension:
+        return None
+
+    settings = get_settings()
+    clickhouse = get_clickhouse_client()
+    database = settings.clickhouse_database
+
+    summary = normalize_record(
+        clickhouse.fetch_one(
+            f"""
+            SELECT
+                exercise_name_canonical,
+                category,
+                load_type,
+                primary_muscles,
+                workout_appearances,
+                tracked_workout_appearances,
+                set_count,
+                total_reps,
+                total_volume_kg,
+                max_weight_kg,
+                max_reps_in_set,
+                first_performed_date,
+                last_performed_date
+            FROM {database}.v_exercise_progress_rollup
+            WHERE exercise_name_canonical = %(exercise_name_canonical)s
+            """,
+            params={"exercise_name_canonical": exercise_name_canonical},
+        )
+    )
+
+    history = normalize_records(
+        clickhouse.fetch_all(
+            f"""
+            SELECT
+                workout_date,
+                workout_id,
+                session_sequence,
+                exercise_instance_id,
+                display_order,
+                exercise_order,
+                source_quality,
+                split_normalized,
+                set_count,
+                total_reps,
+                total_volume_kg,
+                max_weight_kg,
+                max_reps_in_set
+            FROM {database}.mart_exercise_progress
+            WHERE exercise_name_canonical = %(exercise_name_canonical)s
+            ORDER BY workout_date DESC, workout_id DESC, display_order ASC
+            """,
+            params={"exercise_name_canonical": exercise_name_canonical},
+        )
+    )
+
+    split_frequency = normalize_records(
+        clickhouse.fetch_all(
+            f"""
+            SELECT
+                split_tag,
+                appearances
+            FROM
+            (
+                SELECT
+                    arrayJoin(split_normalized) AS split_tag,
+                    count() AS appearances
+                FROM {database}.mart_exercise_progress
+                WHERE exercise_name_canonical = %(exercise_name_canonical)s
+                GROUP BY split_tag
+            )
+            ORDER BY appearances DESC, split_tag ASC
+            """,
+            params={"exercise_name_canonical": exercise_name_canonical},
+        )
+    )
+
+    return {
+        "exercise": dimension,
+        "progress_summary": summary,
+        "split_frequency": split_frequency,
+        "history": history,
     }

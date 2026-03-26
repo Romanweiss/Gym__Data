@@ -1,0 +1,296 @@
+{
+  "workout_id": "2026-03-05",
+  "date": "2026-03-05",
+  "session_sequence": 1,
+  "title_raw": "Спина, Задняя дельта",
+  "split_raw": [
+    "Спина",
+    "Задняя дельта"
+  ],
+  "split_normalized": [
+    "back",
+    "rear_delts"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "05.03.2026 Спина, Задняя дельта\n1. Кардио - эллиптический тренажёр вперёд 10 минут\n2. Кардио - эллиптический тренажёр назад 5 минут\n3. Подтягивания широким хватом 5, 7, 9, 11, 13, 12, 11\n4. Экстензия 13, 20х13, 40х12, 60х10, 80х8\n5. Скручивания на медболе пресс 13, 14, 14, 14, 14\n6. Тяга штанги к поясу стоя 50х13, 70х10, 80х8, 90х7, 90х6\n7. Тяга штанги за спиной на заднюю дельту 40х13, 50х10, 50х8, 50х10, 50х10",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 10,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 5,
+      "notes": null
+    }
+  ],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 3,
+      "exercise_name_raw": "Подтягивания широким хватом",
+      "exercise_name_canonical": "подтягивания широким хватом",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 5,
+          "raw_value": "5",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 7,
+          "raw_value": "7",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 9,
+          "raw_value": "9",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 6,
+          "weight_kg": 0,
+          "reps": 12,
+          "raw_value": "12",
+          "parse_note": null
+        },
+        {
+          "set_order": 7,
+          "weight_kg": 0,
+          "reps": 11,
+          "raw_value": "11",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "5, 7, 9, 11, 13, 12, 11",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Экстензия",
+      "exercise_name_canonical": "экстензия",
+      "category": "strength",
+      "load_type": "bodyweight_or_loaded",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 20,
+          "reps": 13,
+          "raw_value": "20х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 40,
+          "reps": 12,
+          "raw_value": "40х12",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 60,
+          "reps": 10,
+          "raw_value": "60х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 80,
+          "reps": 8,
+          "raw_value": "80х8",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "13, 20х13, 40х12, 60х10, 80х8",
+      "notes": "Первый сет без указанного внешнего веса; сохранён как bodyweight/0 кг.",
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Скручивания на медболе пресс",
+      "exercise_name_canonical": "скручивания на медболе",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 0,
+          "reps": 13,
+          "raw_value": "13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 0,
+          "reps": 14,
+          "raw_value": "14",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "13, 14, 14, 14, 14",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Тяга штанги к поясу стоя",
+      "exercise_name_canonical": "тяга штанги к поясу стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 50,
+          "reps": 13,
+          "raw_value": "50х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 70,
+          "reps": 10,
+          "raw_value": "70х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 80,
+          "reps": 8,
+          "raw_value": "80х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 90,
+          "reps": 7,
+          "raw_value": "90х7",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 90,
+          "reps": 6,
+          "raw_value": "90х6",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "50х13, 70х10, 80х8, 90х7, 90х6",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Тяга штанги за спиной на заднюю дельту",
+      "exercise_name_canonical": "тяга штанги за спиной на заднюю дельту",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [
+        {
+          "set_order": 1,
+          "weight_kg": 40,
+          "reps": 13,
+          "raw_value": "40х13",
+          "parse_note": null
+        },
+        {
+          "set_order": 2,
+          "weight_kg": 50,
+          "reps": 10,
+          "raw_value": "50х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 3,
+          "weight_kg": 50,
+          "reps": 8,
+          "raw_value": "50х8",
+          "parse_note": null
+        },
+        {
+          "set_order": 4,
+          "weight_kg": 50,
+          "reps": 10,
+          "raw_value": "50х10",
+          "parse_note": null
+        },
+        {
+          "set_order": 5,
+          "weight_kg": 50,
+          "reps": 10,
+          "raw_value": "50х10",
+          "parse_note": null
+        }
+      ],
+      "raw_sets_text": "40х13, 50х10, 50х8, 50х10, 50х10",
+      "notes": null,
+      "source_quality": "raw_detailed"
+    }
+  ]
+}

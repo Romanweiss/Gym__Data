@@ -1,0 +1,136 @@
+{
+  "workout_id": "2026-03-21",
+  "date": "2026-03-21",
+  "session_sequence": 1,
+  "title_raw": "Спина, Задняя дельта, Трицепс, Бицепс",
+  "split_raw": [
+    "Спина",
+    "Задняя дельта",
+    "Трицепс",
+    "Бицепс"
+  ],
+  "split_normalized": [
+    "back",
+    "rear_delts",
+    "triceps",
+    "biceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Объёмная тяговая сессия с прогрессией по верхнему блоку до 95 кг, работа на заднюю дельту (пек-дек и блок), гантели лёжа до 50 кг, трицепс в блоках до 90 кг, бицепс изоляция и шраги; без тяжёлой осевой нагрузки; завершение — сауна, контрастный душ, лёгкая растяжка.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "stretching",
+      "duration_min": null,
+      "notes": "Лёгкая растяжка"
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Тяга верхнего блока",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Прогрессия по верхнему блоку до 95 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Пек дек на заднюю дельту",
+      "exercise_name_canonical": "пек-дек на заднюю дельту",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Тяга/блок на заднюю дельту",
+      "exercise_name_canonical": "пуловер канатом на заднюю дельту",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Тяга гантелей лёжа",
+      "exercise_name_canonical": "тяга гантелей в наклонной скамье лёжа лицом вниз",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Гантели лёжа до 50 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Трицепс в блоках",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "Нагрузка до 90 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Бицепс изоляция",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 7,
+      "exercise_name_raw": "Шраги",
+      "exercise_name_canonical": "шраги",
+      "category": "strength",
+      "load_type": "dumbbell_or_barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

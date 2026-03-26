@@ -1,0 +1,57 @@
+{
+  "workout_id": "2026-03-10",
+  "date": "2026-03-10",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Растяжка",
+  "split_raw": [
+    "Кардио",
+    "Растяжка"
+  ],
+  "split_normalized": [
+    "cardio",
+    "stretching"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "raw_detailed",
+  "source_text": "10.03.2026 Кардио, Растяжка\n1. Кардио - эллиптический тренажёр вперёд 20 минут\n2. Кардио - эллиптический тренажёр назад 10 минут\n3. Растяжка 30 минут\n4. Кардио - эллиптический тренажёр вперёд 10 минут\n5. Кардио - эллиптический тренажёр назад 10 минут",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 20,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 10,
+      "notes": null
+    },
+    {
+      "order": 4,
+      "machine": "эллиптический тренажёр",
+      "direction": "forward",
+      "duration_min": 10,
+      "notes": null
+    },
+    {
+      "order": 5,
+      "machine": "эллиптический тренажёр",
+      "direction": "backward",
+      "duration_min": 10,
+      "notes": null
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 3,
+      "event_type": "stretching",
+      "duration_min": 30,
+      "notes": null
+    }
+  ],
+  "exercises": []
+}

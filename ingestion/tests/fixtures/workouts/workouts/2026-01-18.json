@@ -1,0 +1,135 @@
+{
+  "workout_id": "2026-01-18",
+  "date": "2026-01-18",
+  "session_sequence": 1,
+  "title_raw": "Кардио, Спина, Ноги, Бицепс, Трицепс, Плечи",
+  "split_raw": [
+    "Кардио",
+    "Спина",
+    "Ноги",
+    "Бицепс",
+    "Трицепс",
+    "Плечи"
+  ],
+  "split_normalized": [
+    "cardio",
+    "back",
+    "legs",
+    "biceps",
+    "triceps",
+    "shoulders"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Щадящая тренировка после медицинской процедуры: кардио на эллипсе 20 мин, лёгкая/средняя изолирующая работа без отказа (спина в блоках, разгибания бедра, бицепс/трицепс в блоках, плечи — махи), пресс; сауна, растяжка, холодный душ.",
+  "notes": null,
+  "cardio_segments": [
+    {
+      "order": 1,
+      "machine": "эллиптический тренажёр",
+      "direction": "mixed",
+      "duration_min": 20,
+      "notes": "Итоговое время по summary-источнику."
+    }
+  ],
+  "recovery_events": [
+    {
+      "order": 1,
+      "event_type": "sauna",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 2,
+      "event_type": "stretching",
+      "duration_min": null,
+      "notes": null
+    },
+    {
+      "order": 3,
+      "event_type": "cold_shower",
+      "duration_min": null,
+      "notes": null
+    }
+  ],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Спина в блоках",
+      "exercise_name_canonical": "тяга верхнего блока",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Разгибания бедра",
+      "exercise_name_canonical": "разгибание бедра сидя в тренажёре поочерёдно каждой ногой",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Бицепс в блоках",
+      "exercise_name_canonical": "подъём штанги на бицепс стоя",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Трицепс в блоках",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 5,
+      "exercise_name_raw": "Махи на плечи",
+      "exercise_name_canonical": "махи гантелями в стороны",
+      "category": "strength",
+      "load_type": "dumbbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 6,
+      "exercise_name_raw": "Пресс",
+      "exercise_name_canonical": "пресс",
+      "category": "strength",
+      "load_type": "bodyweight",
+      "bodyweight": true,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}

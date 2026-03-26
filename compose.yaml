@@ -89,6 +89,7 @@ services:
       GYM_DATA_CLICKHOUSE_PASSWORD: ${CLICKHOUSE_PASSWORD:-gym_data}
       GYM_DATA_WORKOUT_DATA_ROOT: /data/workouts
       GYM_DATA_WORKOUT_SOURCE_DIR: /data/workouts/workouts
+      GYM_DATA_WORKOUT_FLAT_DIR: /data/workouts/flat
       GYM_DATA_WORKOUT_SCHEMA_PATH: /data/workouts/schema/workout.schema.json
       GYM_DATA_EXERCISE_DICTIONARY_PATH: /data/workouts/flat/exercise_dictionary.jsonl
     depends_on:
@@ -105,4 +106,3 @@ services:
 volumes:
   postgres_data:
   clickhouse_data:
-

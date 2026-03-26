@@ -1,0 +1,76 @@
+{
+  "workout_id": "2026-01-30",
+  "date": "2026-01-30",
+  "session_sequence": 1,
+  "title_raw": "Ноги, Задняя дельта, Трицепс",
+  "split_raw": [
+    "Ноги",
+    "Задняя дельта",
+    "Трицепс"
+  ],
+  "split_normalized": [
+    "legs",
+    "rear_delts",
+    "triceps"
+  ],
+  "source_type": "manual_log",
+  "source_quality": "summary_only",
+  "source_text": "Тяжёлая по ногам — присед со штангой до 120 кг, дополнительно мёртвая тяга; умеренная работа на верх.",
+  "notes": null,
+  "cardio_segments": [],
+  "recovery_events": [],
+  "exercises": [
+    {
+      "order": 1,
+      "exercise_name_raw": "Приседания со штангой",
+      "exercise_name_canonical": "приседания со штангой",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": "До 120 кг.",
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 2,
+      "exercise_name_raw": "Мёртвая тяга",
+      "exercise_name_canonical": "становая тяга",
+      "category": "strength",
+      "load_type": "barbell",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 3,
+      "exercise_name_raw": "Задняя дельта",
+      "exercise_name_canonical": "пек-дек на заднюю дельту",
+      "category": "strength",
+      "load_type": "machine",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    },
+    {
+      "order": 4,
+      "exercise_name_raw": "Трицепс",
+      "exercise_name_canonical": "тяга верхнего блока на трицепс",
+      "category": "strength",
+      "load_type": "cable",
+      "bodyweight": false,
+      "attributes": {},
+      "sets": [],
+      "raw_sets_text": null,
+      "notes": null,
+      "source_quality": "summary_only"
+    }
+  ]
+}
